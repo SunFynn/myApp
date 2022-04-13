@@ -1,19 +1,25 @@
-# Ant Design Pro
+# 个人技术网站
 
-This project is initialized with [Ant Design Pro](https://pro.ant.design). Follow is the quick guide for how to use.
+使用 antd design pro 框架初始化项目。 umi + antd design pro + typescript + less + docker 部署
+
+部署到个人阿里云 ECS 服务器，CentOs 服务器地址 home/myapp
+
+请求接口信息：个人 ECS 服务器 3000 端口
+
+个人阿里云 ECS 服务器：39.107.12.47
+
+antd design pro 官网地址： https://pro.ant.design
+
+## 配置 nginx
+
+> 详见 ./docker_nginx
 
 ## Environment Prepare
 
 Install `node_modules`:
 
 ```bash
-npm install
-```
-
-or
-
-```bash
-yarn
+yarn install
 ```
 
 ## Provided Scripts
@@ -34,24 +40,8 @@ npm start
 npm run build
 ```
 
-### Check code style
-
-```bash
-npm run lint
-```
-
-You can also use script to auto fix some lint error:
-
-```bash
-npm run lint:fix
-```
-
 ### Test code
 
 ```bash
 npm test
 ```
-
-## More
-
-You can view full document on our [official website](https://pro.ant.design). And welcome any feedback in our [github](https://github.com/ant-design/ant-design-pro).
