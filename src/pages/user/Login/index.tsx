@@ -37,10 +37,18 @@ const Login: React.FC = () => {
     try {
       // 登录
       let msg;
-      if (['admin', 'user'].includes(values.username || '') && values.password === '123456')
+      if (
+        type === 'account' &&
+        ['admin', 'user'].includes(values.username || '') &&
+        values.password === '123456'
+      )
         msg = { status: 'ok', type: 'account', currentAuthority: values.username };
-      else {
-        msg = { status: 'error', type: 'account', currentAuthority: values.username };
+      else if (type === 'mobile' && values.captcha === '1234') {
+        msg = { status: 'ok', type: 'mobile', currentAuthority: values.mobile };
+      } else if (type === 'account') {
+        msg = { status: 'error', type: 'account' };
+      } else {
+        msg = { status: 'error', type: 'mobile' };
       }
       if (msg.status === 'ok') {
         const obj = {
@@ -57,7 +65,6 @@ const Login: React.FC = () => {
         history.push(redirect || '/');
         return;
       }
-      console.log(msg);
       // 如果失败去设置用户错误信息
       setUserLoginState(msg);
     } catch (error) {
