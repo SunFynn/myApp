@@ -1,0 +1,54 @@
+.progress {
+  .progress-box {
+    .progress-name {
+      color: #000000;
+    }
+    .first-p {
+      margin-top: 0px;
+    }
+    .progress-bg-width {
+      position: relative;
+      display: inline-block;
+      width: 90%;
+      height: 6px;
+      background: rgba(177, 210, 255, 0.1);
+      border-radius: 3px;
+    }
+    .progress-width {
+      position: absolute;
+      display: inline-block;
+      height: 6px;
+      border-radius: 3px;
+      animation-name: example;
+      animation-duration: 3s;
+    }
+    @keyframes example {
+      0% {
+        width: 0%;
+      }
+    }
+    .progress-icon {
+      position: absolute;
+      top: -2px;
+      z-index: 888;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      animation-name: iconLeft;
+      animation-duration: 3s;
+    }
+    @keyframes iconLeft {
+      0% {
+        left: 0%;
+      }
+    }
+    .progress-num {
+      margin-top: 4px;
+      margin-left: 10px;
+      color: #6ac4ff;
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+}

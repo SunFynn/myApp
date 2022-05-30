@@ -3,7 +3,7 @@ import { Carousel, Row, Col } from 'antd';
 import type { FC } from 'react';
 import type { CarouselProps } from 'antd/lib/carousel';
 // less
-import styles from './index.less';
+import styles from './style.less';
 
 interface CarouselProProps {}
 
