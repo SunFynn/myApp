@@ -31,6 +31,12 @@
     component: './Welcome',
   },
   {
+    path: '/charts',
+    name: '大屏图表例',
+    icon: 'ConsoleSqlOutlined',
+    component: './ChartsCom',
+  },
+  {
     path: '/admin',
     name: 'admin',
     icon: 'crown',
