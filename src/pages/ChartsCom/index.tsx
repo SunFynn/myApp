@@ -6,6 +6,9 @@ import CarouselPro from './components/ScrollCom/CarouselPro';
 import ProgressCom from './components/ScrollCom/ProgressCom';
 // Echarts图表组件
 import PieEcharts from './components/Echarts/PieEcharts';
+import GaugeEcharts from './components/Echarts/GaugeEcharts';
+// Antd charts图表
+import BidirectionalBar from './components/Antv/BidirectionalBar';
 
 interface ChartsComProps {}
 
@@ -50,6 +53,15 @@ const ChartsCom: FC<ChartsComProps> = () => {
       <div style={{ display: 'flex' }}>
         <Card title="圆环图表" style={{ width: 440 }}>
           <PieEcharts data={PieEchartsData} />
+        </Card>
+        <Card title="仪表盘图表" style={{ width: 300, marginLeft: '16px' }}>
+          <GaugeEcharts data={26.3} />
+        </Card>
+      </div>
+      <h2 style={{ marginTop: '24px' }}>Antd charts图表组件</h2>
+      <div style={{ display: 'flex' }}>
+        <Card title="堆叠柱形图" style={{ width: 440 }}>
+          <BidirectionalBar />
         </Card>
       </div>
     </div>
