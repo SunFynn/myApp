@@ -4,6 +4,8 @@ import { Card } from 'antd';
 // 滚动组件
 import CarouselPro from './components/ScrollCom/CarouselPro';
 import ProgressCom from './components/ScrollCom/ProgressCom';
+// Echarts图表组件
+import PieEcharts from './components/Echarts/PieEcharts';
 
 interface ChartsComProps {}
 
@@ -20,6 +22,19 @@ const ChartsCom: FC<ChartsComProps> = () => {
     ];
   }, []);
 
+  const PieEchartsData = {
+    piedata: [
+      { value: 48, name: '资金支付管理', percent: '34%' },
+      { value: 46, name: '工程进度管理', percent: '33%' },
+      { value: 42, name: '工程分包管理', percent: '21%' },
+      { value: 39, name: '质量安全管理', percent: '7%' },
+      { value: 35, name: '过程变更管理', percent: '5%' },
+    ],
+    all: 312,
+    title: '冒烟预警次数',
+    pieColor: ['#3A6DE9', '#7833FF', '#F7DF33', '#3AF4A2', '#3AE8FF', '#3AE8FF'],
+  };
+
   return (
     <div>
       <h2>滚动组件</h2>
@@ -29,6 +44,12 @@ const ChartsCom: FC<ChartsComProps> = () => {
         </Card>
         <Card title="自定义滚动" style={{ width: 300, marginLeft: '16px' }}>
           <ProgressCom data={ProgressComData} />
+        </Card>
+      </div>
+      <h2 style={{ marginTop: '24px' }}>Echarts图表组件</h2>
+      <div style={{ display: 'flex' }}>
+        <Card title="圆环图表" style={{ width: 440 }}>
+          <PieEcharts data={PieEchartsData} />
         </Card>
       </div>
     </div>
