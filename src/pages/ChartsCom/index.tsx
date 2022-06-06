@@ -4,6 +4,7 @@ import { Card } from 'antd';
 // 滚动组件
 import CarouselPro from './components/ScrollCom/CarouselPro';
 import ProgressCom from './components/ScrollCom/ProgressCom';
+import PositionScroll from './components/ScrollCom/PositionScroll';
 // Echarts图表组件
 import PieEcharts from './components/Echarts/PieEcharts';
 import GaugeEcharts from './components/Echarts/GaugeEcharts';
@@ -47,8 +48,11 @@ const ChartsCom: FC<ChartsComProps> = () => {
         <Card title="Carousel走马灯滚动条" style={{ width: 300 }}>
           <CarouselPro />
         </Card>
-        <Card title="自定义滚动" style={{ width: 300, marginLeft: '16px' }}>
+        <Card title="transform自定义滚动" style={{ width: 300, marginLeft: '16px' }}>
           <ProgressCom data={ProgressComData} />
+        </Card>
+        <Card title="position自定义滚动" style={{ width: 300, marginLeft: '16px' }}>
+          <PositionScroll />
         </Card>
       </div>
       <h2 style={{ marginTop: '24px' }}>Echarts图表组件</h2>
