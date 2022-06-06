@@ -7,6 +7,8 @@ import ProgressCom from './components/ScrollCom/ProgressCom';
 // Echarts图表组件
 import PieEcharts from './components/Echarts/PieEcharts';
 import GaugeEcharts from './components/Echarts/GaugeEcharts';
+import EchartsClick from './components/Echarts/ClickEcharts/Echarts';
+import EchartsForReactEvent from './components/Echarts/ClickEcharts/EchartsForReactEvent';
 // Antd charts图表
 import BidirectionalBar from './components/Antv/BidirectionalBar';
 
@@ -56,6 +58,18 @@ const ChartsCom: FC<ChartsComProps> = () => {
         </Card>
         <Card title="仪表盘图表" style={{ width: 300, marginLeft: '16px' }}>
           <GaugeEcharts data={26.3} />
+        </Card>
+        <Card title="图表点击事件" style={{ width: 600, marginLeft: '16px' }}>
+          <div style={{ display: 'flex' }}>
+            <div style={{ width: '260px', marginRight: '40px' }}>
+              echarts图表绑定点击事件
+              <EchartsClick />
+            </div>
+            <div style={{ width: '260px' }}>
+              echarts-for-react图表绑定点击事件
+              <EchartsForReactEvent />
+            </div>
+          </div>
         </Card>
       </div>
       <h2 style={{ marginTop: '24px' }}>Antd charts图表组件</h2>
