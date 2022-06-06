@@ -37,6 +37,12 @@
     component: './ChartsCom',
   },
   {
+    path: '/relschema',
+    name: '关系图',
+    icon: 'BranchesOutlined',
+    component: './RelSchema',
+  },
+  {
     path: '/admin',
     name: '管理页',
     icon: 'crown',
