@@ -1,0 +1,27 @@
+.mapBox {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  z-index: 100;
+  .backBox {
+    position: absolute;
+    top: calc(50% - 60px);
+    left: 0px;
+    z-index: 999;
+    display: inline-block;
+    width: 0px;
+    height: 1640;
+    padding: 0px 0px 0px -28px;
+    color: #000000;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 32px solid rgba(24, 99, 194, 0.8);
+    transform: rotate(0deg);
+    cursor: pointer;
+    writing-mode: vertical-lr;
+  }
+}
+.map {
+  width: 600px;
+  height: 560px;
+}

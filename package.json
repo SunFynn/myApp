@@ -59,6 +59,7 @@
     "classnames": "^2.3.0",
     "echarts": "^5.3.2",
     "echarts-for-react": "^3.0.2",
+    "echarts-gl": "^2.0.9",
     "immer": "^9.0.14",
     "lodash": "^4.17.0",
     "moment": "^2.29.0",

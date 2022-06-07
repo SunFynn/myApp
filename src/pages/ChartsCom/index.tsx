@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Card } from 'antd';
 // 滚动组件
 import CarouselPro from './components/ScrollCom/CarouselPro';
@@ -12,10 +12,15 @@ import EchartsClick from './components/Echarts/ClickEcharts/Echarts';
 import EchartsForReactEvent from './components/Echarts/ClickEcharts/EchartsForReactEvent';
 // Antd charts图表
 import BidirectionalBar from './components/Antv/BidirectionalBar';
+// EchartsGL地图组件
+import EchartsGLMAP from './components/EchartsGLMap';
+import { getCityData } from './components/EchartsGLMap/mock';
 
 interface ChartsComProps {}
 
 const ChartsCom: FC<ChartsComProps> = () => {
+  const [cityInfo, setCityInfo] = useState({ city: '浙江省', orgCode: '330000' });
+
   const ProgressComData = useMemo(() => {
     return [
       { title: '数据1', value: 100 },
@@ -80,6 +85,16 @@ const ChartsCom: FC<ChartsComProps> = () => {
       <div style={{ display: 'flex' }}>
         <Card title="堆叠柱形图" style={{ width: 440 }}>
           <BidirectionalBar />
+        </Card>
+      </div>
+      <h2 style={{ marginTop: '24px' }}>Antd charts图表组件</h2>
+      <div style={{ display: 'flex' }}>
+        <Card title="echartsGL地图" style={{ width: 600, position: 'relative', height: '560px' }}>
+          <EchartsGLMAP
+            city={cityInfo.city}
+            setCityInfo={setCityInfo}
+            cityData={getCityData(cityInfo.orgCode)}
+          />
         </Card>
       </div>
     </div>
