@@ -13,14 +13,16 @@ import EchartsForReactEvent from './components/Echarts/ClickEcharts/EchartsForRe
 // Antd charts图表
 import BidirectionalBar from './components/Antv/BidirectionalBar';
 // EchartsGL地图组件
-import EchartsGLMAP from './components/EchartsGLMap';
-import { getCityData } from './components/EchartsGLMap/mock';
+import EchartsGLMAP from './components/EchartsGLMap/Map';
+import { getCityData } from './components/EchartsGLMap/Map/mock';
+import EchartsGLPie3D from './components/EchartsGLMap/Pie3D';
 
 interface ChartsComProps {}
 
 const ChartsCom: FC<ChartsComProps> = () => {
   const [cityInfo, setCityInfo] = useState({ city: '浙江省', orgCode: '330000' });
 
+  /** transform自定义滚动数据 */
   const ProgressComData = useMemo(() => {
     return [
       { title: '数据1', value: 100 },
@@ -33,6 +35,7 @@ const ChartsCom: FC<ChartsComProps> = () => {
     ];
   }, []);
 
+  /** echarts圆环图表数据 */
   const PieEchartsData = {
     piedata: [
       { value: 48, name: '资金支付管理', percent: '34%' },
@@ -87,14 +90,20 @@ const ChartsCom: FC<ChartsComProps> = () => {
           <BidirectionalBar />
         </Card>
       </div>
-      <h2 style={{ marginTop: '24px' }}>Antd charts图表组件</h2>
+      <h2 style={{ marginTop: '24px' }}>Echarts GL图表组件</h2>
       <div style={{ display: 'flex' }}>
-        <Card title="echartsGL地图" style={{ width: 600, position: 'relative', height: '560px' }}>
+        <Card
+          title="echartsGL地图"
+          style={{ width: 600, position: 'relative', height: '560px', marginRight: '40px' }}
+        >
           <EchartsGLMAP
             city={cityInfo.city}
             setCityInfo={setCityInfo}
             cityData={getCityData(cityInfo.orgCode)}
           />
+        </Card>
+        <Card title="echartsGL3D圆环图" style={{ width: 500, height: '360px' }}>
+          <EchartsGLPie3D />
         </Card>
       </div>
     </div>
