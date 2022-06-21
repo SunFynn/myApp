@@ -25,10 +25,10 @@
     component: './home',
   },
   {
-    path: '/welcome',
-    name: '欢迎',
+    path: '/design',
+    name: '个人前端组件库',
     icon: 'smile',
-    component: './Welcome',
+    component: './Design',
   },
   {
     path: '/charts',
@@ -53,7 +53,7 @@
         path: '/admin/sub-page',
         name: '二级管理页',
         icon: 'smile',
-        component: './Welcome',
+        component: './Design',
       },
       {
         component: './404',
