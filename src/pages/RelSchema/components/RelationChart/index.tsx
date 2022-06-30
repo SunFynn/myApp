@@ -150,7 +150,7 @@ const RelationChart: React.FC<RelationChartProps> = (props) => {
         normal: {
           show: true,
           position: 'left',
-          color: '#FFF',
+          color: '#000',
           fontSize: 12,
           ...itemLabel,
         },

@@ -43,6 +43,18 @@
     component: './RelSchema',
   },
   {
+    path: '/map',
+    name: '地图业务',
+    icon: 'InsertRowBelowOutlined',
+    routes: [
+      {
+        path: '/map/amap',
+        name: '高德地图',
+        component: './Map/AMap',
+      },
+    ],
+  },
+  {
     path: '/admin',
     name: '管理页',
     icon: 'crown',

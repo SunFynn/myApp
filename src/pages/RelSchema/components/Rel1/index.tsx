@@ -60,8 +60,8 @@ const ProjectRelationChart: React.FC<ProjectRelationChartProps> = ({ enterprise 
         x: 18,
         y: 10,
         itemStyle: {
-          color: 'grey',
-          borderColor: 'grey',
+          color: '#33C146',
+          borderColor: '#33C146',
         },
         label: {
           position: 'right',
@@ -92,7 +92,7 @@ const ProjectRelationChart: React.FC<ProjectRelationChartProps> = ({ enterprise 
         },
       }}
       commonLineStyle={{
-        color: '#FFFFFF',
+        color: '#73F3F7',
         width: 3,
       }}
       onClickItems={(data) => {

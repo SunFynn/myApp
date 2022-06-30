@@ -14,6 +14,7 @@ const Design: React.FC = () => {
       </p>
       <Card title={'EllipsisSpan组件'}>
         <EllipsisSpan value={'盼望着，盼望着，春天来了'} width={100} />
+        <EllipsisSpan value={'盼望着，盼望着，春天来了'} width={180} />
       </Card>
     </PageContainer>
   );

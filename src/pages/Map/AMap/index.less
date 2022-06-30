@@ -1,0 +1,48 @@
+.map {
+  position: relative;
+  height: 546px;
+  .recover {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 9999;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #0083ff;
+    border-radius: 30px;
+  }
+  :global {
+    .amap-logo {
+      display: none !important;
+    }
+    .anchorBL {
+      display: none;
+    }
+    .amap-container {
+      background-color: #f0f2f5 !important;
+    }
+    .custom-content-marker {
+      position: relative;
+      text-align: center;
+      .custom-content-marker-icon {
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        margin-left: -5px;
+        background: red;
+        border-radius: 10px;
+      }
+      .custom-content-marker-title {
+        margin-top: -55px;
+        color: #ffffff;
+      }
+      .custom-content-marker-num {
+        margin-top: -50px;
+        color: #ffffff;
+      }
+    }
+  }
+}
