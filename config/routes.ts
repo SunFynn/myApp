@@ -52,6 +52,16 @@
         name: '高德地图',
         component: './Map/AMap',
       },
+      {
+        path: '/map/bmap',
+        name: '百度地图',
+        component: './Map/BMap',
+      },
+      {
+        path: '/map/tmap',
+        name: '天地图',
+        component: './Map/TMap/Box',
+      },
     ],
   },
   {

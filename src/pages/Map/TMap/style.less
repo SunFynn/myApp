@@ -1,0 +1,41 @@
+.Tmap-box {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 3;
+  background-color: #0a366b !important;
+  .d3Class {
+    &:hover {
+      fill: red !important;
+    }
+  }
+  .d3ClassShadow {
+    transform: translate(8px, 8px) !important;
+  }
+  .mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+    background: url('~@/assets/images/out_map_mask.png') no-repeat;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+  .tdt-left {
+    display: none;
+  }
+  & > div {
+    &:nth-child(4) {
+      display: none !important;
+    }
+  }
+}
+
+.geojson {
+  background: red;
+  box-shadow: 50px 50px red !important;
+}

@@ -4,11 +4,11 @@ import { EnvironmentTwoTone } from '@ant-design/icons';
 import redIcon from '@/assets/images/amap_red.png';
 import yellowIcon from '@/assets/images/amap_yellow.png';
 import greenIcon from '@/assets/images/amap_green.png';
-import { list } from '@/services/map';
+import { list } from '@/services/map/amap';
 import cs from 'classnames';
 // typescript
 import type { FC } from 'react';
-import type { projectlistProps } from '@/services/map';
+import type { projectlistProps } from '@/services/map/amap';
 // less
 import styles from './index.less';
 
