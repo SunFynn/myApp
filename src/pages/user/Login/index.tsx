@@ -38,10 +38,10 @@ const Login: React.FC = () => {
       if (
         type === 'account' &&
         ['admin', 'user'].includes(values.username || '') &&
-        values.password === '123456'
+        values.password === '121828'
       )
         msg = { status: 'ok', type: 'account', currentAuthority: values.username };
-      else if (type === 'mobile' && values.captcha === '1234') {
+      else if (type === 'mobile' && values.captcha === '121828') {
         msg = { status: 'ok', type: 'mobile', currentAuthority: values.mobile };
       } else if (type === 'account') {
         msg = { status: 'error', type: 'account' };
@@ -97,7 +97,7 @@ const Login: React.FC = () => {
           </Tabs>
 
           {status === 'error' && loginType === 'account' && (
-            <LoginMessage content={'账户或密码错误(admin/123456)'} />
+            <LoginMessage content={'账户或密码错误'} />
           )}
           {type === 'account' && (
             <>
@@ -121,7 +121,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   prefix: <LockOutlined className={styles.prefixIcon} />,
                 }}
-                placeholder={'密码: 123456'}
+                // placeholder={'密码: 123456'}
                 rules={[
                   {
                     required: true,
@@ -176,7 +176,7 @@ const Login: React.FC = () => {
                   },
                 ]}
                 onGetCaptcha={async () => {
-                  message.success('获取验证码成功！验证码为：1234');
+                  message.success('获取验证码成功!');
                 }}
               />
             </>
