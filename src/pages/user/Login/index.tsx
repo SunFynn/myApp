@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   AlipayCircleOutlined,
   LockOutlined,
@@ -7,11 +8,10 @@ import {
   WeiboCircleOutlined,
 } from '@ant-design/icons';
 import { Alert, message, Tabs } from 'antd';
-import React, { useState } from 'react';
 import { ProFormCaptcha, ProFormCheckbox, ProFormText, LoginForm } from '@ant-design/pro-form';
 import { history } from 'umi';
 import Footer from '@/components/Footer';
-
+import { connect } from 'dva';
 import styles from './index.less';
 
 const LoginMessage: React.FC<{
@@ -27,7 +27,12 @@ const LoginMessage: React.FC<{
   />
 );
 
-const Login: React.FC = () => {
+export interface LoginProps {
+  dispatch?: any;
+}
+
+const Login: React.FC<LoginProps> = (props) => {
+  const { dispatch } = props;
   const [userLoginState, setUserLoginState] = useState<any>({});
   const [type, setType] = useState<string>('account');
 
@@ -39,9 +44,21 @@ const Login: React.FC = () => {
         type === 'account' &&
         ['admin', 'user'].includes(values.username || '') &&
         values.password === '121828'
-      )
+      ) {
         msg = { status: 'ok', type: 'account', currentAuthority: values.username };
-      else if (type === 'mobile' && values.captcha === '121828') {
+        dispatch({
+          type: 'user/fetch',
+          payload: { name: values.username },
+        });
+        dispatch({
+          type: 'user/fetchCurrent',
+          payload: { name: values.username },
+        });
+        dispatch({
+          type: 'user/saveCurrentUser',
+          payload: { msg: '直接调用reducer中的函数' },
+        });
+      } else if (type === 'mobile' && values.captcha === '121828') {
         msg = { status: 'ok', type: 'mobile', currentAuthority: values.mobile };
       } else if (type === 'account') {
         msg = { status: 'error', type: 'account' };
@@ -204,4 +221,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default connect()(Login);
