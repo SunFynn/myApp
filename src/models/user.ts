@@ -25,7 +25,7 @@ const UserModel: UserModelType = {
 
   state: {
     username: '',
-    userUtils: '普通用户',
+    userUtils: '',
   },
 
   effects: {

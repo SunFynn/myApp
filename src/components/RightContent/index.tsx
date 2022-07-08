@@ -13,7 +13,7 @@ const GlobalHeaderRight: React.FC<GlobalHeaderRightProps> = (props) => {
   return (
     <Space className={styles.right}>
       <Avatar menu={true} />
-      <span style={{ color: '#ffffff' }}>{props.user.userUtils}</span>
+      <span style={{ color: '#ffffff' }}>{props.user.userUtils || ''}</span>
     </Space>
   );
 };
