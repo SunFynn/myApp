@@ -24,7 +24,7 @@ const TMap = (props: TMapProps) => {
 
   // 注册地图和3d模型
   //@ts-ignore
-  const T = window.T || {};
+  const T = window.T;
   //@ts-ignore
   const d3 = window.d3 || {};
 
@@ -230,7 +230,7 @@ const TMap = (props: TMapProps) => {
       });
       return marker;
     },
-    [T.Icon, T.InfoWindow, T.LngLat, T.Marker, T.Point, map],
+    [T, map],
   );
 
   const overJson = useMemo(() => {

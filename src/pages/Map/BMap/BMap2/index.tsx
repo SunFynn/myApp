@@ -1,6 +1,4 @@
 import { forwardRef, useRef, useEffect, useState, useMemo } from 'react';
-//@ts-ignore
-import BMap from 'BMap';
 import mapIcon from '@/assets/images/icon_project.png';
 
 interface ISelectMap {
@@ -21,6 +19,8 @@ export default forwardRef((props: ISelectMap) => {
   const [zoom, setZoom] = useState(defaultZoom);
 
   const mapRef = useRef<any>(null);
+  //@ts-ignore
+  const BMap = window.BMap;
 
   const newzoom = useMemo(() => {
     let c: number = zoom;
@@ -64,7 +64,7 @@ export default forwardRef((props: ISelectMap) => {
   useEffect(() => {
     // 注册百度地图
     const { current } = mapRef;
-    if (current) {
+    if (current && BMap) {
       const map1 = new BMap.Map(current);
       const point = new BMap.Point(centerPoint.lng, centerPoint.lat);
       map1.centerAndZoom(point, defaultZoom);

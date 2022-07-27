@@ -35,12 +35,12 @@ export default forwardRef((props: ISelectMap) => {
 
   const mapRef = useRef<any>(null);
   //@ts-ignore
-  const BMapGL = window?.BMapGL || {};
+  const BMapGL = window?.BMapGL;
 
   useEffect(() => {
     // 注册百度地图
     const { current } = mapRef;
-    if (current) {
+    if (current && BMapGL) {
       // eslint-disable-next-line @typescript-eslint/no-shadow
       const map = new BMapGL.Map(current, {
         enableDblclickZoom: false,
