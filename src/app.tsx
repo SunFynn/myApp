@@ -14,11 +14,12 @@ export const initialStateConfig = {
 
 // ProLayout 支持的api https://procomponents.ant.design/components/layout
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
+  console.log(initialState, '---------');
   return {
     rightContentRender: () => <RightContent />,
     disableContentMargin: false,
     waterMarkProps: {
-      content: initialState?.currentUser?.name,
+      content: '爱喵喵的嘿嘿呀',
     },
     footerRender: () => <Footer />,
     onPageChange: () => {

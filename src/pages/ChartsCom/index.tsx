@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import { useMemo, useState } from 'react';
 import { Card } from 'antd';
+import { PageContainer } from '@ant-design/pro-layout';
 // 滚动组件
 import CarouselPro from './components/ScrollCom/CarouselPro';
 import ProgressCom from './components/ScrollCom/ProgressCom';
@@ -50,7 +51,7 @@ const ChartsCom: FC<ChartsComProps> = () => {
   };
 
   return (
-    <div>
+    <PageContainer>
       <h2>滚动组件</h2>
       <div style={{ display: 'flex' }}>
         <Card title="Carousel走马灯滚动条" style={{ width: 300 }}>
@@ -106,7 +107,7 @@ const ChartsCom: FC<ChartsComProps> = () => {
           <EchartsGLPie3D />
         </Card>
       </div>
-    </div>
+    </PageContainer>
   );
 };
 

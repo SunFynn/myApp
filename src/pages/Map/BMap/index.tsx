@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { PageContainer } from '@ant-design/pro-layout';
 import BMap1 from './BMap1';
 import BMap2 from './BMap2';
 import { list } from '@/services/map/bmap';
@@ -20,7 +21,7 @@ const BMap = () => {
   }, []);
 
   return (
-    <div>
+    <PageContainer>
       <div style={{ height: '500px', background: '#ffffff', padding: '16px 20px' }}>
         <BMap2
           projectList={list}
@@ -29,7 +30,7 @@ const BMap = () => {
         />
       </div>
       <BMap1 />
-    </div>
+    </PageContainer>
   );
 };
 

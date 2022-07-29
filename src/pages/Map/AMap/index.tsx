@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { EnvironmentTwoTone } from '@ant-design/icons';
+import { PageContainer } from '@ant-design/pro-layout';
 import redIcon from '@/assets/images/amap_red.png';
 import yellowIcon from '@/assets/images/amap_yellow.png';
 import greenIcon from '@/assets/images/amap_green.png';
@@ -192,7 +193,11 @@ interface allProjectListProps extends projectlistProps {
 }
 
 const AMapBox = () => {
-  return <Map projectlist={list || []} defaultZoom={11} />;
+  return (
+    <PageContainer>
+      <Map projectlist={list || []} defaultZoom={11} />
+    </PageContainer>
+  );
 };
 
 export default AMapBox;
