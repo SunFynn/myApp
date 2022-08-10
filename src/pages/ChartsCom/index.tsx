@@ -11,6 +11,8 @@ import PieEcharts from './components/Echarts/PieEcharts';
 import GaugeEcharts from './components/Echarts/GaugeEcharts';
 import EchartsClick from './components/Echarts/ClickEcharts/Echarts';
 import EchartsForReactEvent from './components/Echarts/ClickEcharts/EchartsForReactEvent';
+import Bar3DEcharts from './components/Echarts/Bar3DEcharts';
+import Bar3DGroupEcharts from './components/Echarts/Bar3DGroupEcharts';
 // Antd charts图表
 import BidirectionalBar from './components/Antv/BidirectionalBar';
 // EchartsGL地图组件
@@ -65,7 +67,7 @@ const ChartsCom: FC<ChartsComProps> = () => {
         </Card>
       </div>
       <h2 style={{ marginTop: '24px' }}>Echarts图表组件</h2>
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         <Card title="圆环图表" style={{ width: 440 }}>
           <PieEcharts data={PieEchartsData} />
         </Card>
@@ -83,6 +85,13 @@ const ChartsCom: FC<ChartsComProps> = () => {
               <EchartsForReactEvent />
             </div>
           </div>
+        </Card>
+        <br />
+        <Card title="3D柱状图" style={{ width: 400, marginTop: '20px' }}>
+          <Bar3DEcharts />
+        </Card>
+        <Card title="3D柱状组合图" style={{ width: 460, marginTop: '20px', marginLeft: '16px' }}>
+          <Bar3DGroupEcharts />
         </Card>
       </div>
       <h2 style={{ marginTop: '24px' }}>Antd charts图表组件</h2>
