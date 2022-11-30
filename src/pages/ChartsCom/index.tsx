@@ -54,6 +54,12 @@ const ChartsCom: FC<ChartsComProps> = () => {
 
   return (
     <PageContainer>
+      <p>
+        跳转到我的图表组件库 ：{' '}
+        <a href="http://39.107.12.47/charts/#/" target="_blank" rel="noreferrer">
+          http://39.107.12.47/charts/#/
+        </a>
+      </p>
       <h2>滚动组件</h2>
       <div style={{ display: 'flex' }}>
         <Card title="Carousel走马灯滚动条" style={{ width: 300 }}>
