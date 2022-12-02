@@ -43,6 +43,12 @@
     component: './RelSchema',
   },
   {
+    path: '/pinterest',
+    name: '交叉瀑布流',
+    icon: 'LaptopOutlined',
+    component: './Pinterest',
+  },
+  {
     path: '/map',
     name: '地图业务',
     icon: 'InsertRowBelowOutlined',

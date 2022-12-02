@@ -91,7 +91,7 @@ request.interceptors.response.use(async (response, options) => {
   if (res) return response;
 
   // 如果code返回是200的情况,可以正常抛出请求结果
-  if (data && data.code === 200) {
+  if (data && data.code == 200) {
     return response;
   } else {
     // if (data && data.code === 401) {

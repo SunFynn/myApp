@@ -1,0 +1,20 @@
+{
+  current: '', // 当前后端开发人员的名字
+  developers: [
+    { name: '测试1api', ip: '172.16.5.12', port: 8001 },
+    { name: '测试2api', ip: '172.16.5.127', port: 8001, devPort: 50301 },
+  ],
+  proxy: {
+    '/api': {
+      target: 'http://${ip}:${port}',
+      port: 'port',
+      changeOrigin: true,
+      pathRewrite: { '^/': '' },
+    },
+    '/devapi': {
+      target: 'http://${ip}:${devPort}',
+      port: 'devPort',
+      changeOrigin: true,
+    },
+  },
+}
