@@ -4,6 +4,7 @@ import { PageContainer } from '@ant-design/pro-layout';
 import { Card, Tabs } from 'antd';
 import CSSColumn from './css_column';
 import Macy from './macy';
+import Waterfall from './waterfalljs';
 import { getPinterestList } from '@/services/pinterest';
 import styles from './style.less';
 
@@ -26,9 +27,13 @@ const Pinterest: FunctionComponent<PinterestProps> = () => {
         <ul>
           <li>1、css实现：column、grid</li>
           <li>
-            2、使用mary库 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            2、使用组件库 2.1 mary库 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="https://github.com/bigbite/macy.js" target="_blank" rel="noreferrer">
               https://github.com/bigbite/macy.js
+            </a>
+            2.2 waterfalljs-layout库
+            <a href="https://github.com/hugeorange/waterfalljs" target="_blank" rel="noreferrer">
+              https://github.com/hugeorange/waterfalljs
             </a>
           </li>
           <li>
@@ -44,12 +49,15 @@ const Pinterest: FunctionComponent<PinterestProps> = () => {
         </ul>
       </Card>
       <Card>
-        <Tabs defaultActiveKey="1">
+        <Tabs defaultActiveKey="3">
           <Tabs.TabPane tab="css_module" key="1">
             <CSSColumn list={list} />
           </Tabs.TabPane>
           <Tabs.TabPane tab="macy库" key="2">
             <Macy list={list} />
+          </Tabs.TabPane>
+          <Tabs.TabPane tab="waterfalljs-layout库" key={'3'}>
+            <Waterfall list={list} />
           </Tabs.TabPane>
         </Tabs>
       </Card>
