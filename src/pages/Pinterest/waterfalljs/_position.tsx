@@ -56,7 +56,7 @@ const WaterFallPositionBox: FunctionComponent<WaterFallPositionBoxProps> = (prop
     for (let i = 0; i < 9; i++) {
       const obj: any = {};
       obj.img = `${defimages[i]}=${random(1, 10000)}`;
-      obj.title = `${images.length + i}`;
+      obj.title = `${images.length + i + 1}`;
       obj.desction = '随机随机';
       arr.push(obj);
     }

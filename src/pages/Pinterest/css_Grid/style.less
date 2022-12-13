@@ -1,0 +1,28 @@
+.hiddenBoxO {
+  width: 420px;
+  height: 600px;
+  padding: 10px;
+  overflow-y: scroll;
+  border: 1px solid #000;
+}
+.hiddenBox {
+  display: grid;
+  grid-auto-rows: 1px;
+  grid-gap: 0px 10px;
+  grid-template-columns: repeat(2, 180px);
+}
+
+.cardBox {
+  margin: 0 0 10px;
+  padding: 10px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e4e0f0;
+  border-radius: 5px;
+  -moz-column-break-inside: avoid;
+  break-inside: avoid;
+  img {
+    width: 100%;
+    // height: auto;
+  }
+}

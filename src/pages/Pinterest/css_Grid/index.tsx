@@ -1,16 +1,14 @@
 import type { FunctionComponent } from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import styles from './style.less';
 
-interface DivBlockTwoProps {
+interface DivBlockGridProps {
   list: { img: string; title: string; desction: string }[];
 }
 
-const DivBlockTwo: FunctionComponent<DivBlockTwoProps> = (props) => {
+const DivBlockGrid: FunctionComponent<DivBlockGridProps> = (props) => {
   const { list: listP } = props;
   const [list, setList] = useState<any[]>([]);
-  const [leftArr, setLeftArr] = useState<any[]>([]);
-  const [rightArr, setRightArr] = useState<any[]>([]);
 
   useEffect(() => {
     setList(listP);
@@ -36,36 +34,20 @@ const DivBlockTwo: FunctionComponent<DivBlockTwoProps> = (props) => {
       .catch((err) => console.log(err));
   }
 
-  useEffect(() => {
-    const height = [0, 0];
+  useLayoutEffect(() => {
     const allBox = document.getElementById('allBox');
+    const cardBoxDivLis = document.getElementsByClassName('cardBoxDivLi');
     const cardBoxDivs = document.getElementsByClassName('cardBoxDiv');
-    //@ts-ignore
+    // @ts-ignore
     const imgs: any[] = allBox?.querySelectorAll('img') || [];
     loadImagesFunc(Array.from(imgs)).then(() => {
-      const leftData = [];
-      const rightData = [];
       // 不是真正的数组，不能使用map、forEach等便利方式
       for (let i = 0; i < cardBoxDivs.length; i++) {
         const h = (cardBoxDivs[i] as HTMLElement).offsetHeight;
-        if (i === 0) {
-          leftData.push(list[i]);
-          height[0] += h;
-        } else if (i === 1) {
-          rightData.push(list[i]);
-          height[1] += h;
-        } else {
-          if (height[0] > height[1]) {
-            rightData.push(list[i]);
-            height[1] += h;
-          } else {
-            leftData.push(list[i]);
-            height[0] += h;
-          }
-        }
+        // 注意：需要给map中的元素定义两层元素，给外侧的元素定义里侧元素的真实高度，不然展示会有问题*******
+        //@ts-ignore
+        if (cardBoxDivLis[i]) cardBoxDivLis[i].style.gridRowEnd = `span ${h + 30}`;
       }
-      setLeftArr(leftData);
-      setRightArr(rightData);
     });
   }, [list]);
 
@@ -87,6 +69,7 @@ const DivBlockTwo: FunctionComponent<DivBlockTwoProps> = (props) => {
   //         obj.desction = '随机随机';
   //         arr.push(obj);
   //       });
+  //       console.log(arr, ' ---');
   //       setList((prev) => [...prev, ...arr]);
   //     });
   // };
@@ -115,7 +98,7 @@ const DivBlockTwo: FunctionComponent<DivBlockTwoProps> = (props) => {
           const obj: any = {};
           // obj.img = `https://picsum.photos/640/200/?random=${random(1, 1000)}`;
           obj.img = `${item.img}`;
-          obj.title = `${list.length + i}`;
+          obj.title = `${list.length + i + 1}`;
           obj.desction = `${createRandomChinese(random(10, 500))}`;
           arr.push(obj);
         });
@@ -125,36 +108,16 @@ const DivBlockTwo: FunctionComponent<DivBlockTwoProps> = (props) => {
 
   return (
     <div className={styles.DivBlockTwo}>
-      <div className={styles.hiddenBox} id="allBox">
-        {list.map((item, idx) => {
-          return (
-            <div key={idx} className={`${styles.cardBox} cardBoxDiv`} style={{ width: '180px' }}>
-              <img src={item.img} alt={'图片丢失'} width={'100%'} />
-              <div>{item.title}</div>
-              <p>{item.desction}</p>
-            </div>
-          );
-        })}
-      </div>
-      <div className={styles.mobileBox}>
-        <div>
-          {leftArr.map((item, idx) => {
+      <div className={styles.hiddenBoxO}>
+        <div className={styles.hiddenBox} id="allBox">
+          {list.map((item) => {
             return (
-              <div key={idx} className={`${styles.cardBox}`} style={{ width: '180px' }}>
-                <img src={item?.img} alt={'图片丢失'} />
-                <div>{item?.title}</div>
-                <p>{item?.desction}</p>
-              </div>
-            );
-          })}
-        </div>
-        <div>
-          {rightArr.map((item, idx) => {
-            return (
-              <div key={idx} className={`${styles.cardBox}`} style={{ width: '180px' }}>
-                <img src={item?.img} alt={'图片丢失'} />
-                <div>{item?.title}</div>
-                <p>{item?.desction}</p>
+              <div key={item.title} className={`${styles.cardBox} cardBoxDivLi`}>
+                <div className={`cardBoxDiv`}>
+                  <img src={item.img} alt={'图片丢失'} width={'100%'} />
+                  <div>{item.title}</div>
+                  <p>{item.desction}</p>
+                </div>
               </div>
             );
           })}
@@ -169,4 +132,4 @@ const DivBlockTwo: FunctionComponent<DivBlockTwoProps> = (props) => {
   );
 };
 
-export default DivBlockTwo;
+export default DivBlockGrid;

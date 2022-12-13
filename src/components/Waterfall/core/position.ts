@@ -141,12 +141,12 @@ export default class Waterfall {
         const columnGap = i === 0 ? 0 : this.config.columnGap;
         element.style.left =
           i * this.config.columnWidth + this.liLeft + (columnGap || 0) * i + 'px';
-        console.log(
-          this.liNodes[curCol[j].index],
-          curCol[j].bottom - curCol[j].height,
-          curCol[j],
-          '000000',
-        );
+        // console.log(
+        //   this.liNodes[curCol[j].index],
+        //   curCol[j].bottom - curCol[j].height,
+        //   curCol[j],
+        //   '000000',
+        // );
         element.style.top = curCol[j].bottom - curCol[j].height + 'px';
       }
     }

@@ -56,7 +56,7 @@ const WaterFallGridBox: FunctionComponent<WaterFallGridBoxProps> = (props) => {
     for (let i = 0; i < 9; i++) {
       const obj: any = {};
       obj.img = `${defimages[i]}=${random(1, 10000)}`;
-      obj.title = `${images.length + i}`;
+      obj.title = `${images.length + i + 1}`;
       obj.desction = '随机随机';
       arr.push(obj);
     }
@@ -75,9 +75,9 @@ const WaterFallGridBox: FunctionComponent<WaterFallGridBoxProps> = (props) => {
         customStyle={customStyleGrid}
         onChangeUlMaxH={(h) => (ulMaxHRef.current = h)}
       >
-        {images.map((item, idx: number) => {
+        {images.map((item) => {
           return (
-            <li key={idx} className={styles.cardBox}>
+            <li key={item.title} className={styles.cardBox}>
               <div>
                 <img src={item.img} alt={'图片丢失'} />
                 <div>{item.title}</div>

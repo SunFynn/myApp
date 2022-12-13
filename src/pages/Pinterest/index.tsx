@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
 import { Card, Tabs } from 'antd';
 import CSSColumn from './css_column';
+import CSSGrid from './css_Grid';
 import Macy from './macy';
 import Waterfall from './waterfalljs';
 import DivBlockTwo from './DivBlockTwo';
@@ -36,7 +37,15 @@ const Pinterest: FunctionComponent<PinterestProps> = () => {
           </a>
         </div>
         <ul>
-          <li>1、css实现：column、grid</li>
+          <li>
+            1、css实现&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <ul>
+              <li>1-1、column布局</li>
+              <li>
+                1-2、grid布局，渲染前不知道图片及内容的宽高，先全部遍历的所有的列表内容，获取内容的高度，给元素使用gird布局，实现交叉瀑布流
+              </li>
+            </ul>
+          </li>
           <li>
             2、使用组件库
             <ul>
@@ -64,9 +73,11 @@ const Pinterest: FunctionComponent<PinterestProps> = () => {
               <li>
                 3-1、图片渲染之前得知图片的宽高，
                 左右两个div，图片的url上包含当前图片的高度，通过计算高度，往较小高度的div添加图片，实现交叉瀑布流
+                【一般不可能】
               </li>
               <li>
-                3-2、渲染前不知道图片及内容的宽高，先全部遍历的所有的列表内容，获取内容的高度，然后往较小高度div中添加元素，实现交叉瀑布流
+                3-2、渲染前不知道图片及内容的宽高，先全部遍历的所有的列表内容，获取内容的高度，然后定义页面左右两个div,
+                往较小高度div中添加元素，实现交叉瀑布流
               </li>
               <li>3-3、IntersectionObserver(交叉观察器)</li>
             </ul>
@@ -74,17 +85,20 @@ const Pinterest: FunctionComponent<PinterestProps> = () => {
         </ul>
       </Card>
       <Card>
-        <Tabs defaultActiveKey="4">
-          <Tabs.TabPane tab="css_module" key="1">
+        <Tabs defaultActiveKey="5">
+          <Tabs.TabPane tab="1-1 css_module" key="1">
             <CSSColumn list={list} />
           </Tabs.TabPane>
-          <Tabs.TabPane tab="2-1 macy库" key="2">
+          <Tabs.TabPane tab="1-2 css_grid" key={'2'}>
+            <CSSGrid list={list} />
+          </Tabs.TabPane>
+          <Tabs.TabPane tab="2-1 macy库" key="3">
             <Macy list={list} />
           </Tabs.TabPane>
-          <Tabs.TabPane tab="2-2 waterfalljs-layout库" key={'3'}>
+          <Tabs.TabPane tab="2-2 waterfalljs-layout库" key={'4'}>
             <Waterfall list={list} />
           </Tabs.TabPane>
-          <Tabs.TabPane tab="3-2 分列展示" key={'4'}>
+          <Tabs.TabPane tab="3-2 分列展示" key={'5'}>
             <DivBlockTwo list={list} />
           </Tabs.TabPane>
         </Tabs>
