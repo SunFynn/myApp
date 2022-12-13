@@ -69,7 +69,7 @@ const WaterFallPositionBox: FunctionComponent<WaterFallPositionBoxProps> = (prop
         columnWidth={220}
         columnCount={3}
         columnGap={24}
-        rowGap={28}
+        rowGap={10}
         customStyle={customStyle}
         onChangeUlMaxH={(h) => (ulMaxHRef.current = h)}
       >

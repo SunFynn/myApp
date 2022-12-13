@@ -25,7 +25,6 @@ const customStyleGrid = `#react-waterfall-grid-comps li>div {
   font-size: 12px;
   overflow: hidden;
   color: rgba(0, 0, 0, 0.6);
-  margin-bottom: 20px;
   padding: 6px;
   background: rgb(255, 255, 255);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
