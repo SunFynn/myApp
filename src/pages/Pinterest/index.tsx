@@ -112,7 +112,19 @@ const Pinterest: FunctionComponent<PinterestProps> = () => {
             <DivBlockTwo list={list} />
           </Tabs.TabPane>
           <Tabs.TabPane tab="3-3 IntersectionObserver + flex布局" key={'6'}>
-            <IntersectionObserver list={list} />
+            <div>
+              Flex布局实现瀑布流的过程
+              <ul>
+                <li>第一步：明确瀑布流有多少列，假设为x</li>
+                <li>第二步：从瀑布流图片接口列表中取出前x个元素，依次渲染至每一列的第一行</li>
+                <li>
+                  第三步：从第x+1个元素开始（此步是精髓）
+                  首先计算每一列的高度,然后将当前要添加的元素添加至高度最低的那一列中
+                </li>
+              </ul>
+              循环第三步，直至所有元素都添加至瀑布流中
+              <IntersectionObserver list={list} />
+            </div>
           </Tabs.TabPane>
         </Tabs>
       </Card>

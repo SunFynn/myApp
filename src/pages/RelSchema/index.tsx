@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import type { FC } from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
 import Rel1 from './components/Rel1';
@@ -6,6 +5,10 @@ import Rel2 from './components/Rel2';
 import Rel3 from './components/Rel3';
 import Rel4 from './components/Rel4';
 import styles from './index.less';
+
+/**
+ * echarts关系图
+ */
 
 interface RelSchemaProps {}
 

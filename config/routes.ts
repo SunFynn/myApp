@@ -49,6 +49,11 @@
     component: './Pinterest',
   },
   {
+    path: '/imageLazyLoading',
+    name: '图片懒加载',
+    component: './ImageLazyLoading',
+  },
+  {
     path: '/map',
     name: '地图业务',
     icon: 'InsertRowBelowOutlined',
