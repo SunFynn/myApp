@@ -51,6 +51,7 @@
   {
     path: '/imageLazyLoading',
     name: '图片懒加载',
+    icon: 'FileImageOutlined',
     component: './ImageLazyLoading',
   },
   {
