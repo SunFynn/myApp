@@ -7,6 +7,7 @@ import CSSGrid from './css_Grid';
 import Macy from './macy';
 import Waterfall from './waterfalljs';
 import DivBlockTwo from './DivBlockTwo';
+import IntersectionObserver from './IntersectionObserver';
 import { getPinterestList } from '@/services/pinterest';
 import styles from './style.less';
 
@@ -79,13 +80,22 @@ const Pinterest: FunctionComponent<PinterestProps> = () => {
                 3-2、渲染前不知道图片及内容的宽高，先全部遍历的所有的列表内容，获取内容的高度，然后定义页面左右两个div,
                 往较小高度div中添加元素，实现交叉瀑布流
               </li>
-              <li>3-3、IntersectionObserver(交叉观察器)</li>
+              <li>
+                3-3、IntersectionObserver(交叉观察器) + flex布局 参考链接：
+                <a
+                  href="https://blog.csdn.net/double_sweet1/article/details/124810060"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  交叉式瀑布流
+                </a>
+              </li>
             </ul>
           </li>
         </ul>
       </Card>
       <Card>
-        <Tabs defaultActiveKey="5">
+        <Tabs defaultActiveKey="6">
           <Tabs.TabPane tab="1-1 css_module" key="1">
             <CSSColumn list={list} />
           </Tabs.TabPane>
@@ -100,6 +110,9 @@ const Pinterest: FunctionComponent<PinterestProps> = () => {
           </Tabs.TabPane>
           <Tabs.TabPane tab="3-2 分列展示" key={'5'}>
             <DivBlockTwo list={list} />
+          </Tabs.TabPane>
+          <Tabs.TabPane tab="3-3 IntersectionObserver + flex布局" key={'6'}>
+            <IntersectionObserver list={list} />
           </Tabs.TabPane>
         </Tabs>
       </Card>

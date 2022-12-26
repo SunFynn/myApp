@@ -115,7 +115,7 @@ const DivBlockTwo: FunctionComponent<DivBlockTwoProps> = (props) => {
           const obj: any = {};
           // obj.img = `https://picsum.photos/640/200/?random=${random(1, 1000)}`;
           obj.img = `${item.img}`;
-          obj.title = `${list.length + i}`;
+          obj.title = `${list.length + i + 1}`;
           obj.desction = `${createRandomChinese(random(10, 500))}`;
           arr.push(obj);
         });
