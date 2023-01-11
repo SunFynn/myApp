@@ -105,7 +105,8 @@ const IntersectionObserverBox = (props: WaterFallProps) => {
         }
       }
     });
-    observerObj.observe(columnArray[columnArray.length - 1]);
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    columnArray.length && observerObj.observe(columnArray[columnArray.length - 1]);
   };
 
   const addPicture = () => {
@@ -131,11 +132,11 @@ const IntersectionObserverBox = (props: WaterFallProps) => {
   };
 
   useEffect(() => {
-    if (dataList.length > 0) {
+    if (dataList.length > 0 && !initialize) {
       // 跳过页面初始化
       addPicture();
     }
-  }, [hasGet]);
+  }, [hasGet, initialize]);
 
   return (
     <div className={styles.mobileBox}>
