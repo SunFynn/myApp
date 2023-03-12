@@ -96,7 +96,7 @@ const Pinterest: FunctionComponent<PinterestProps> = () => {
       </Card>
       <Card>
         <Tabs defaultActiveKey="6">
-          <Tabs.TabPane tab="1-1 css_module" key="1">
+          <Tabs.TabPane tab="1-1 css_column" key="1">
             <CSSColumn list={list} />
           </Tabs.TabPane>
           <Tabs.TabPane tab="1-2 css_grid" key={'2'}>
