@@ -8,8 +8,8 @@ const Design: React.FC = () => {
     <PageContainer>
       <p>
         跳转到我的前端组件库 ：{' '}
-        <a href="http://39.107.12.47/design/#/" target="_blank" rel="noreferrer">
-          http://39.107.12.47/design/#/
+        <a href="http://www.wtz-lmm.cn/design/#/" target="_blank" rel="noreferrer">
+          http://www.wtz-lmm.cn/design/#/
         </a>
       </p>
       <Card title={'EllipsisSpan组件'}>
