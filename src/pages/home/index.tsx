@@ -63,7 +63,7 @@ const Home: FC<HomeProps> = () => {
 
   return (
     <div>
-      home页 - 123123213
+      <h2>home页</h2>
       <Button type="primary" onClick={handleGet}>
         获取node服务器接口数据_get
       </Button>
