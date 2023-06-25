@@ -57,7 +57,7 @@ const ChartsCom: FC<ChartsComProps> = () => {
       <p>
         跳转到我的图表组件库 ：{' '}
         <a href="http://www.wtz-lmm.cn/charts/#/" target="_blank" rel="noreferrer">
-        http://www.wtz-lmm.cn/charts/#/
+          http://www.wtz-lmm.cn/charts/#/
         </a>
       </p>
       <h2>滚动组件</h2>
@@ -74,13 +74,16 @@ const ChartsCom: FC<ChartsComProps> = () => {
       </div>
       <h2 style={{ marginTop: '24px' }}>Echarts图表组件</h2>
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        <Card title="圆环图表" style={{ width: 440 }}>
+        <Card title="圆环图表" style={{ width: 440, marginRight: '16px', marginBottom: '16px' }}>
           <PieEcharts data={PieEchartsData} />
         </Card>
-        <Card title="仪表盘图表" style={{ width: 300, marginLeft: '16px' }}>
+        <Card title="仪表盘图表" style={{ width: 300, marginRight: '16px', marginBottom: '16px' }}>
           <GaugeEcharts data={26.3} />
         </Card>
-        <Card title="图表点击事件" style={{ width: 600, marginLeft: '16px' }}>
+        <Card
+          title="图表点击事件"
+          style={{ width: 600, marginRight: '16px', marginBottom: '16px' }}
+        >
           <div style={{ display: 'flex' }}>
             <div style={{ width: '260px', marginRight: '40px' }}>
               echarts图表绑定点击事件
@@ -93,10 +96,13 @@ const ChartsCom: FC<ChartsComProps> = () => {
           </div>
         </Card>
         <br />
-        <Card title="3D柱状图" style={{ width: 400, marginTop: '20px' }}>
+        <Card title="3D柱状图" style={{ width: 400, marginRight: '16px', marginBottom: '16px' }}>
           <Bar3DEcharts />
         </Card>
-        <Card title="3D柱状组合图" style={{ width: 460, marginTop: '20px', marginLeft: '16px' }}>
+        <Card
+          title="3D柱状组合图"
+          style={{ width: 460, marginRight: '16px', marginBottom: '16px' }}
+        >
           <Bar3DGroupEcharts />
         </Card>
       </div>

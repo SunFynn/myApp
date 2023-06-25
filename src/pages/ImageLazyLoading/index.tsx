@@ -62,32 +62,27 @@ export default function Image() {
   return (
     <div className={`${styles.images} admin-content`}>
       <img
-        data-src="https://picnew13.photophoto.cn/20190114/wangluokejibeijingbizhisucai8kchaogaoqing-31818641_1.jpg"
+        data-src="http://picnew13.photophoto.cn/20190114/wangluokejibeijingbizhisucai8kchaogaoqing-31818641_1.jpg"
         className={`lazy-image ${styles['lazy-image']}`}
       />
       <img
         data-src="http://f.hiphotos.baidu.com/zhidao/pic/item/eac4b74543a982267a3d54978a82b9014b90eb86.jpg"
-        // className="lazy-image"
         className={`lazy-image ${styles['lazy-image']}`}
       />
       <img
-        data-src="https://img-blog.csdnimg.cn/img_convert/a150d2b9a65426eb5c8a3205326e2c84.png"
-        // className="lazy-image"
+        data-src="http://g.hiphotos.baidu.com/image/pic/item/6d81800a19d8bc3e770bd00d868ba61ea9d345f2.jpg"
         className={`lazy-image ${styles['lazy-image']}`}
       />
       <img
         data-src="http://c.hiphotos.baidu.com/zhidao/pic/item/8d5494eef01f3a2987a8062f9f25bc315d607ceb.jpg"
-        // className="lazy-image"
         className={`lazy-image ${styles['lazy-image']}`}
       />
       <img
         data-src="http://imgsrc.baidu.com/image/c0%3Dpixel_huitu%2C0%2C0%2C294%2C40/sign=5a7938d38acb39dbd5cd6f16b96e6c48/aec379310a55b3196c79de4c48a98226cffc1702.jpg"
-        // className="lazy-image"
         className={`lazy-image ${styles['lazy-image']}`}
       />
       <img
-        data-src="http://c.hiphotos.baidu.com/zhidao/pic/item/8d5494eef01f3a2987a8062f9f25bc315d607ceb.jpg"
-        // className="lazy-image"
+        data-src="http://c.hiphotos.baidu.com/image/pic/item/9c16fdfaaf51f3de1e296fa390eef01f3b29795a.jpg"
         className={`lazy-image ${styles['lazy-image']}`}
       />
     </div>

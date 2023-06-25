@@ -6,6 +6,21 @@ body,
   height: 100%;
 }
 
+/*滚动条设置*/
+::-webkit-scrollbar,
+.rc-virtual-list-scrollbar {
+  /*整体部分*/
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb,
+.rc-virtual-list-scrollbar-thumb {
+  /*滑块*/
+  background-color: #999999 !important;
+  border-radius: 6px;
+}
+
 .colorWeak {
   filter: invert(80%);
 }
@@ -54,4 +69,9 @@ ol {
   body .ant-design-pro > .ant-layout {
     min-height: 100vh;
   }
+}
+
+.ant-pro-setting-drawer-handle {
+  top: auto !important;
+  bottom: 200px !important;
 }

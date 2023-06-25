@@ -1,9 +1,11 @@
-import { SettingDrawer } from '@ant-design/pro-layout';
-import { PageLoading } from '@ant-design/pro-layout';
+import { SettingDrawer, PageLoading } from '@ant-design/pro-layout';
+import type { MenuDataItem } from '@ant-design/pro-layout';
 import type { RunTimeLayoutConfig } from 'umi';
 import { history } from 'umi';
+import logo from '../public/logo.svg';
 import RightContent from '@/components/RightContent';
 import Footer from '@/components/Footer';
+import Helmet from './components/Helmet';
 
 const loginPath = '/user/login';
 
@@ -12,9 +14,20 @@ export const initialStateConfig = {
   loading: <PageLoading />,
 };
 
-// ProLayout 支持的api https://procomponents.ant.design/components/layout
+// 判断用户权限，展示不同的菜单项
+const formatMenuData = (menuData: MenuDataItem[]) => {
+  const isAdmin = JSON.parse(localStorage.getItem('isLogin') || '{}')?.data?.username === 'admin';
+  if (isAdmin) {
+    return menuData;
+  } else {
+    return menuData.filter((item) => item.path !== '/admin');
+  }
+};
+
 export const layout: RunTimeLayoutConfig = ({ initialState }: any) => {
   return {
+    title: '喵喵 & 嘿嘿',
+    logo: logo,
     rightContentRender: () => <RightContent />,
     disableContentMargin: false,
     waterMarkProps: {
@@ -22,8 +35,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }: any) => {
     },
     footerRender: () => <Footer />,
     onPageChange: () => {
-      // const { location } = history;
-      // 如果没有登录，重定向到 login
+      // 如果没有登录，重定向到login页面
       if (!localStorage.getItem('isLogin')) {
         history.push(loginPath);
       }
@@ -32,10 +44,12 @@ export const layout: RunTimeLayoutConfig = ({ initialState }: any) => {
     // 自定义 403 页面
     // unAccessible: <div>unAccessible</div>,
     // 增加一个 loading 的状态
+    menuDataRender: (menuData: MenuDataItem[]) => formatMenuData(menuData),
     childrenRender: (children, props) => {
       // if (initialState?.loading) return <PageLoading />;
       return (
         <>
+          <Helmet />
           {children}
           {!props.location?.pathname?.includes('/login') && (
             <SettingDrawer

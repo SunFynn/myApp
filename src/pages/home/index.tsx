@@ -1,16 +1,15 @@
 import type { FC } from 'react';
-import { useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 import { Button } from 'antd';
-import { get, post } from '@/services/home';
+import { PageContainer } from '@ant-design/pro-layout';
 import produce from 'immer';
+import { get, post } from '@/services/home';
 
 interface HomeProps {}
 
 const Home: FC<HomeProps> = () => {
-  useEffect(() => {});
-
+  // get请求
   const handleGet = useCallback(() => {
-    console.log(123213);
     get({}).then((res) => {
       if (res.data) {
         console.log(res);
@@ -18,6 +17,7 @@ const Home: FC<HomeProps> = () => {
     });
   }, []);
 
+  // post请求
   const handlePost = useCallback(() => {
     post({}).then((res) => {
       console.log(res);
@@ -62,15 +62,14 @@ const Home: FC<HomeProps> = () => {
   console.log(nextObj, obj === nextObj, '------------');
 
   return (
-    <div>
-      <h2>home页</h2>
-      <Button type="primary" onClick={handleGet}>
+    <PageContainer>
+      <Button type="primary" onClick={handleGet} style={{ marginRight: '16px' }}>
         获取node服务器接口数据_get
       </Button>
       <Button type="primary" onClick={handlePost}>
         获取node服务器接口数据_post
       </Button>
-    </div>
+    </PageContainer>
   );
 };
 

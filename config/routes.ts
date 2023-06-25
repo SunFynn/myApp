@@ -27,7 +27,7 @@
   {
     path: '/design',
     name: '个人前端组件库',
-    icon: 'smile',
+    icon: 'AntDesignOutlined',
     component: './Design',
   },
   {
