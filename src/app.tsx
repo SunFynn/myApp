@@ -28,6 +28,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }: any) => {
   return {
     title: '喵喵 & 嘿嘿',
     logo: logo,
+    pageTitleRender: false, // ProLayout 会根据菜单和路径来自动匹配浏览器的标题, 例：首页 - title，此配置项可去掉前边的路由标题
     rightContentRender: () => <RightContent />,
     disableContentMargin: false,
     waterMarkProps: {
