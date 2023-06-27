@@ -4,7 +4,7 @@ import iconImg from '@/assets/images/tmap_icon.png';
 import iconImg1 from '@/assets/images/tmap_over_icon.png';
 import styles from './style.less';
 
-// 杭州市3d模型数据
+// 金华市3d模型数据
 const JHJson = require('@/assets/json/jh.json');
 
 interface TMapProps {
