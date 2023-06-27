@@ -38,7 +38,7 @@ export default defineConfig({
     type: 'none',
   },
   history: { type: 'hash' },
-  // mfsu: {},
+  mfsu: {},
   // webpack5: {},
   exportStatic: {},
   externals: {
