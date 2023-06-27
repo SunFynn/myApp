@@ -77,6 +77,12 @@
     ],
   },
   {
+    path: '/utils',
+    name: '封装方法调用展示',
+    icon: 'SlidersOutlined',
+    component: './utilsCom',
+  },
+  {
     path: '/admin',
     name: '管理页',
     icon: 'crown',
