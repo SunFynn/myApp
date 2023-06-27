@@ -5,7 +5,7 @@ import { PageContainer } from '@ant-design/pro-layout';
 
 const Design: React.FC = () => {
   return (
-    <PageContainer>
+    <PageContainer title="个人前端组件库">
       <p>
         跳转到我的前端组件库 ：{' '}
         <a href="http://www.wtz-lmm.cn/design/#/" target="_blank" rel="noreferrer">

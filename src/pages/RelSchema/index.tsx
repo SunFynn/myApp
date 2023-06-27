@@ -16,7 +16,7 @@ const RelSchema: FC<RelSchemaProps> = () => {
   const defaultEnterprise = '桐乡市城市建设投资有限公司';
 
   return (
-    <PageContainer>
+    <PageContainer title="关系图">
       <div className={styles.RelSchema}>
         <div className={styles.relCard}>
           <h2 className={styles.title}>单向关系图</h2>

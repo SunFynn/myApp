@@ -10,7 +10,7 @@ interface UtilsComProps {}
 
 const UtilsCom: FunctionComponent<UtilsComProps> = () => {
   return (
-    <PageContainer extra="封装的方法调用展示页面">
+    <PageContainer title="封装方法调用展示" extra="封装的方法调用展示页面">
       <div className={styles.UtilsCom}>
         <Card title="下载canves图片" className={styles.CanvesToImage}>
           <div className={cs(styles.QrcodeDownload, 'QrcodeDownload')}>

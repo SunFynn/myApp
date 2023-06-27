@@ -1,4 +1,5 @@
 import { useEffect, useCallback, useState, useMemo } from 'react';
+import { PageContainer } from '@ant-design/pro-layout';
 import iconImg from '@/assets/images/tmap_icon.png';
 import iconImg1 from '@/assets/images/tmap_over_icon.png';
 import styles from './style.less';
@@ -321,9 +322,11 @@ const TMap = (props: TMapProps) => {
   }, [map, clearD3, outProjectList]);
 
   return (
-    <div id="Tmap-box" className={styles['Tmap-box']}>
-      <div className={styles.mask} />
-    </div>
+    <PageContainer>
+      <div id="Tmap-box" className={styles['Tmap-box']}>
+        <div className={styles.mask} />
+      </div>
+    </PageContainer>
   );
 };
 

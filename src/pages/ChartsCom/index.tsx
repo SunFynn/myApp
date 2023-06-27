@@ -53,7 +53,7 @@ const ChartsCom: FC<ChartsComProps> = () => {
   };
 
   return (
-    <PageContainer>
+    <PageContainer title="大屏图表例">
       <p>
         跳转到我的图表组件库 ：{' '}
         <a href="http://www.wtz-lmm.cn/charts/#/" target="_blank" rel="noreferrer">

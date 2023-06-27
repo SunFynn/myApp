@@ -24,7 +24,7 @@ const Pinterest: FunctionComponent<PinterestProps> = () => {
   }, []);
 
   return (
-    <PageContainer>
+    <PageContainer title="交叉瀑布流">
       <Card className={styles.Pinterest}>
         <h3>交叉瀑布流的实现方式</h3>
         <div>

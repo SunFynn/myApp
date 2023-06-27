@@ -62,7 +62,7 @@ const Home: FC<HomeProps> = () => {
   console.log(nextObj, obj === nextObj, '------------');
 
   return (
-    <PageContainer>
+    <PageContainer title="首页">
       <Button type="primary" onClick={handleGet} style={{ marginRight: '16px' }}>
         获取node服务器接口数据_get
       </Button>
