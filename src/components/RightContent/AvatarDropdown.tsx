@@ -1,11 +1,10 @@
 import React, { useCallback } from 'react';
 import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Menu } from 'antd';
+import { Avatar, Menu, Dropdown } from 'antd';
 import { history } from 'umi';
 import { stringify } from 'querystring';
-import HeaderDropdown from '../HeaderDropdown';
-import styles from './index.less';
 import type { MenuInfo } from 'rc-menu/lib/interface';
+import styles from './index.less';
 
 export type GlobalHeaderRightProps = {
   menu?: boolean;
@@ -16,7 +15,6 @@ export type GlobalHeaderRightProps = {
  */
 const loginOut = async () => {
   const { search, pathname } = history.location;
-  // Note: There may be security issues, please note
   if (window.location.pathname !== '/user/login') {
     localStorage.removeItem('isLogin');
     history.replace({
@@ -61,19 +59,14 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu }) => {
     </Menu>
   );
   return (
-    <HeaderDropdown overlay={menuHeaderDropdown}>
+    <Dropdown overlayClassName={styles.container} overlay={menuHeaderDropdown}>
       <span className={`${styles.action} ${styles.account}`}>
-        <Avatar
-          size="small"
-          className={styles.avatar}
-          src={'https://joeschmoe.io/api/v1/random'}
-          alt="avatar"
-        />
+        <Avatar size="small" className={styles.avatar} icon={<UserOutlined />} alt="avatar" />
         <span className={`${styles.name} anticon`}>
           {JSON.parse(localStorage.getItem('isLogin') || '{}')?.data?.username}
         </span>
       </span>
-    </HeaderDropdown>
+    </Dropdown>
   );
 };
 

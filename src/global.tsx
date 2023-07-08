@@ -1,5 +1,6 @@
 import { Button, message, notification } from 'antd';
 import defaultSettings from '../config/defaultSettings';
+import './global.less';
 
 const { pwa } = defaultSettings;
 const isHttps = document.location.protocol === 'https:';

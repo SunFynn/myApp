@@ -6,7 +6,11 @@
 
 请求接口信息：个人 ECS 服务器 3000 端口
 
-个人阿里云 ECS 服务器：39.107.12.47
+个人阿里云 ECS 服务器：
+
+ip 39.107.12.47
+
+域名 http://www.wtz-lmm.cn
 
 antd design pro 官网地址： https://pro.ant.design
 

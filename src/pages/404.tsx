@@ -1,18 +1,21 @@
 import { Button, Result } from 'antd';
-import React from 'react';
-import { history } from 'umi';
+import { history, useLocation } from 'umi';
 
-const NoFoundPage: React.FC = () => (
-  <Result
-    status="404"
-    title="404"
-    subTitle="Sorry, the page you visited does not exist."
-    extra={
-      <Button type="primary" onClick={() => history.push('/')}>
-        Back Home
-      </Button>
-    }
-  />
-);
+const NoFoundPage: React.FC = () => {
+  const location = useLocation();
+  if (location.pathname === '/') history.push('/home');
+  return (
+    <Result
+      status="404"
+      title="404"
+      subTitle="对不起，当前页面丢失了"
+      extra={
+        <Button type="primary" onClick={() => history.push('/home')}>
+          回到首页
+        </Button>
+      }
+    />
+  );
+};
 
 export default NoFoundPage;

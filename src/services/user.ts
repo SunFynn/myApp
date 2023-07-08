@@ -21,7 +21,4 @@ export async function queryCurrent({ name }: { name: string }) {
     },
     message: 'success',
   };
-  return request(`/api/info?${stringify(name)}`, {
-    method: 'GET',
-  });
 }
