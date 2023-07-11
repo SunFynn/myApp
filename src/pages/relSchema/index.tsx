@@ -34,6 +34,14 @@ const RelSchema: FC<RelSchemaProps> = () => {
           <h2 className={styles.title}>多关系图</h2>
           <Rel4 />
         </div>
+
+        <div
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
+          回到顶部
+        </div>
       </div>
     </PageContainer>
   );

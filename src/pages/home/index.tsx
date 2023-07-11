@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { useCallback } from 'react';
+import { useEffect, useCallback, useRef, useState } from 'react';
 import { Button } from 'antd';
 import { PageContainer } from '@ant-design/pro-layout';
 import produce from 'immer';
@@ -8,6 +8,17 @@ import { get, post } from '@/services/home';
 interface HomeProps {}
 
 const Home: FC<HomeProps> = () => {
+  const num = useRef<number>(0);
+
+  const handleRefBtnClick = () => {
+    num.current++;
+    console.log(num.current, 'ref绑定的值');
+  };
+
+  useEffect(() => {
+    console.log(`监听ref的变化${num.current}`);
+  }, [num.current]);
+
   // get请求
   const handleGet = useCallback(() => {
     get({}).then((res) => {
@@ -23,25 +34,6 @@ const Home: FC<HomeProps> = () => {
       console.log(res);
     });
   }, []);
-
-  const baseState = [
-    {
-      title: 'Learn TypeScript',
-      done: true,
-    },
-    {
-      title: 'Try Immer',
-      done: false,
-    },
-  ];
-
-  const nextState = baseState.slice(); // 数组截取，返回新的数组
-  nextState[1] = {
-    ...nextState[1],
-    done: true,
-  };
-  nextState.push({ title: 'Tweet about it', done: false });
-  console.log(baseState, nextState, baseState === nextState, '123123123');
 
   const obj = [
     {
@@ -69,6 +61,8 @@ const Home: FC<HomeProps> = () => {
       <Button type="primary" onClick={handlePost}>
         获取node服务器接口数据_post
       </Button>
+      <p>ref的值：{num.current}</p>
+      <Button onClick={handleRefBtnClick}>useRef的值+1</Button>
     </PageContainer>
   );
 };
