@@ -1,0 +1,34 @@
+@import url(./light.css);
+
+:root {
+  --DU-main-bg-color: #1c1c1c;
+  --DU-main-text-color: #ffffff;
+  --DU-second-text-color: #898d97;
+  --DU-main-icon-color: #898d97;
+  --DU-main-item-icon-color: #898d97;
+  --DU-main-border-color: #2a2a2d;
+  --DU-main-bg-primary-color: #3591f4;
+  --DU-main-text-primary-color: #3591f4;
+  --DU-main-box-border-color: #2a2a2a;
+  --DU-main-bg-gray-color: #161616;
+}
+
+.Add_DU_Msg .DUBox_Footer_Cancel{
+  color: var(--DU-main-text-primary-color) !important;
+  border-color: var(--DU-main-text-primary-color) !important;
+  transition: color .3s, border-color .3s;
+}
+
+.Add_DU_Msg .DUBox_Footer_Cancel:hover{
+  color: rgba(53, 145, 244, 0.7) !important;
+  border-color: rgba(53, 145, 244, 0.7) !important;
+}
+
+.Add_DU_Msg #TextArea_Element .AppBox{
+  border: none !important;
+  background-color: var(--DU-main-bg-gray-color);
+}
+
+.Add_DU_Msg #Radio_Element .date_time_icon svg{
+  fill: rgba(255, 255, 255, 0.3);
+}

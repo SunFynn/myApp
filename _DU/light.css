@@ -1,0 +1,715 @@
+@charset "UTF-8";
+:root {
+  --DU-main-bg-color: #ffffff;
+  --DU-main-text-color: #363a45;
+  --DU-second-text-color: #898d97;
+  --DU-main-icon-color: #ccd6dd;
+  --DU-main-item-icon-color: #363a45;
+  --DU-main-border-color: #dde6f0;
+  --DU-main-bg-primary-color: #3591f4;
+  --DU-main-text-primary-color: #3591f4;
+  --DU-main-box-border-color: #f0f0f0;
+  --DU-main-bg-gray-color: #f2f4f9;
+}
+
+/*滚动条设置*/
+::-webkit-scrollbar,
+.rc-virtual-list-scrollbar {
+  /*整体部分*/
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb,
+.rc-virtual-list-scrollbar-thumb {
+  /*滑块*/
+  background-color: var(--DU-main-border-color) !important;
+  border-radius: 6px;
+}
+
+.Add_DU_Msg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+}
+
+.Add_DU_Msg .DU_box {
+  position: fixed;
+  top: 10%;
+  bottom: 10%;
+  left: 10%;
+  right: 10%;
+  /* min-width: 768px; */
+  /* min-height: 450px; */
+  background-color: var(--DU-main-bg-color);
+  border-radius: 4px;
+}
+
+/* Header */
+.Add_DU_Msg .DUBox_Header {
+  height: 58px;
+  padding: 0 16px;
+  min-height: 40px;
+  background: var(--DU-main-bg-color);
+  border-bottom: 1px solid var(--DU-main-box-border-color);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.Add_DU_Msg .DUBox_Header .DUBox_Header_title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 58px;
+  color: var(--DU-main-text-color);
+}
+.Add_DU_Msg .DUBox_Header .DUBox_Header_close {
+  position: absolute;
+  right: 22px;
+  top: 19px;
+  cursor: pointer;
+}
+.Add_DU_Msg .DUBox_Header .DUBox_Header_close svg path {
+  fill: var(--DU-main-text-color);
+}
+
+/* Content */
+.Add_DU_Msg .DUBox_Content {
+  padding: 10px 16px 0px;
+  background-color: var(--DU-main-bg-color);
+  overflow-y: auto;
+  height: calc(100% - 111px);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* loading状态 */
+.Add_DU_Msg .LoadingElement {
+  position: absolute;
+  top: 58px;
+  bottom: 53px;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+.Add_DU_Msg .LoadingElement .loadingSpan {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 5px solid var(--DU-main-bg-primary-color);
+  border-bottom-color: transparent;
+  border-radius: 100%;
+  animation: loading 1s linear infinite;
+  box-sizing: content-box;
+}
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* DU type组件 [应用内|短信|电话] */
+.Add_DU_Msg .DUType_Element {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.Add_DU_Msg .DUType_Element > div {
+  cursor: not-allowed;
+  font-size: 15px;
+  padding: 10px;
+  width: 32%;
+  height: 75px;
+  border-radius: 4px;
+  border: 1px solid var(--DU-main-border-color);
+  color: #363a45;
+  box-sizing: border-box;
+}
+.Add_DU_Msg .DUType_Element > div span {
+  line-height: 25px;
+}
+.Add_DU_Msg .DUType_Element > div span svg {
+  fill: #363a45;
+}
+.Add_DU_Msg .DUType_Element > div.active {
+  color: #fff;
+  background-color: var(--DU-main-bg-primary-color);
+}
+.Add_DU_Msg .DUType_Element > div.active span svg {
+  fill: #ffffff;
+}
+
+/* 操作项统一样式 */
+.Add_DU_Msg .DUBox_Content_Item_Box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.Add_DU_Msg .DUBox_Content_Item_Box > span {
+  width: 28px;
+  box-sizing: border-box;
+  align-self: normal;
+  margin-top: 10px;
+}
+.Add_DU_Msg .DUBox_Content_Item_Box > span svg {
+  fill: var(--DU-main-item-icon-color);
+}
+.Add_DU_Msg .DUBox_Content_Item_Box .DUBox_Content_Item_Box_Right {
+  flex: 1;
+  padding: 7px 12px 3px 9px;
+  min-height: 40px;
+  border: 1px solid var(--DU-main-border-color);
+  border-radius: 4px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* 操作一 */
+.Add_DU_Msg #AddUser_Element .AddUser_Element_Add {
+  display: inline-flex;
+  height: 24px;
+  font-size: 12px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--DU-main-text-primary-color) !important;
+  border: 1px dashed var(--DU-main-text-primary-color);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  margin-bottom: 4px;
+  padding: 0 4px;
+}
+.Add_DU_Msg #AddUser_Element .AddUser_Element_Add svg {
+  fill: var(--DU-main-text-primary-color);
+  margin-right: 1px;
+}
+.Add_DU_Msg #AddUser_Element #AddUser_List_Box {
+  display: initial;
+}
+.Add_DU_Msg #AddUser_Element #AddUser_List_Box .AddUser_List_Item {
+  height: 24px;
+  box-sizing: border-box;
+  margin-bottom: 2px;
+  margin-right: 8px;
+  color: var(--DU-main-text-color);
+  border: 1px solid var(--DU-main-bg-gray-color);
+  border-radius: 4px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+  background: var(--DU-main-bg-gray-color);
+  padding: 0 6px;
+}
+.Add_DU_Msg #AddUser_Element #AddUser_List_Box .AddUser_List_Item .AddUser_List_Item_Close {
+  width: 14px;
+  height: 14px;
+  position: relative;
+}
+.Add_DU_Msg #AddUser_Element #AddUser_List_Box .AddUser_List_Item .AddUser_List_Item_Close svg {
+  position: absolute;
+  top: 0px;
+  fill: var(--DU-main-text-color) !important;
+  vertical-align: bottom;
+  margin-left: 1px;
+}
+
+/* 操作二 */
+.Add_DU_Msg #Default_DuType_Element {
+  background: var(--DU-main-bg-gray-color);
+  cursor: not-allowed;
+  position: relative;
+  padding-top: 9px;
+}
+.Add_DU_Msg #Default_DuType_Element .duType_span {
+  color: var(--DU-second-text-color);
+  font-size: 14px;
+}
+.Add_DU_Msg #Default_DuType_Element .company_name {
+  color: var(--DU-second-text-color);
+  font-size: 14px;
+  position: absolute;
+  right: 38px;
+  top: 8px;
+}
+.Add_DU_Msg #Default_DuType_Element .selectIcon {
+  fill: #ccd6dd;
+  position: absolute;
+  right: 12px;
+  top: 9px;
+}
+
+/* 操作三 */
+.Add_DU_Msg #TextArea_Element {
+  font-size: 14px;
+  padding: 5px 14px 10px 8px;
+}
+.Add_DU_Msg #TextArea_Element textarea {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--DU-main-text-color);
+  width: 96%;
+}
+.Add_DU_Msg #TextArea_Element .AppBox {
+  padding: 4px;
+  border: 1px solid var(--DU-main-border-color);
+  border-radius: 4px;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  width: 96%;
+}
+.Add_DU_Msg #TextArea_Element .AppBox img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+.Add_DU_Msg #TextArea_Element .AppBox div {
+  color: var(--DU-main-text-color);
+  margin-left: 8px;
+  font-size: 16px;
+  line-height: 50px;
+}
+
+/* 操作四 */
+.Add_DU_Msg #Select_Time_Element {
+  padding-top: 9px;
+  cursor: pointer;
+  color: var(--DU-main-text-color);
+  position: relative;
+  font-size: 14px;
+}
+.Add_DU_Msg #Select_Time_Element .selectIcon {
+  position: absolute;
+  right: 12px;
+  top: 9px;
+}
+.Add_DU_Msg #Select_Time_Element .selectIcon svg {
+  fill: var(--DU-main-icon-color);
+}
+
+/* 操作四 - 下拉框样式 */
+.layui_select_tixing {
+  width: calc(80% - 60px);
+  border: none;
+  box-shadow: 0 3px 6px -2px var(--DU-main-border-color);
+  background: var(--DU-main-bg-color) !important;
+}
+.layui_select_tixing .layui-dropdown-menu li {
+  padding: 0px;
+  margin: 0;
+  background-color: var(--DU-main-bg-color);
+}
+.layui_select_tixing .layui-dropdown-menu li > div > div {
+  padding: 5px 15px;
+  background-color: var(--DU-main-bg-color);
+  color: var(--DU-main-text-color);
+}
+.layui_select_tixing .layui-dropdown-menu li > div > div:hover {
+  background-color: var(--DU-main-bg-gray-color);
+}
+.layui_select_tixing .layui-dropdown-menu li .layui-select-selected {
+  background-color: rgba(53, 145, 244, 0.1) !important;
+  color: #3591f4 !important;
+}
+
+/* 短信DU - 选择部门 */
+.Add_DU_Msg #Department_Element .selectDiv {
+  padding-top: 8px;
+  position: relative;
+  background: var(--DU-main-bg-gray-color);
+  cursor: not-allowed;
+  color: var(--DU-second-text-color);
+  font-size: 14px;
+}
+.Add_DU_Msg #Department_Element .selectDiv .selectIcon {
+  position: absolute;
+  right: 12px;
+  top: 9px;
+}
+.Add_DU_Msg #Department_Element .selectDiv .selectIcon svg {
+  fill: #ccd6dd;
+}
+.Add_DU_Msg #Department_Element .descriptionDiv {
+  font-size: 12px;
+  color: var(--DU-second-text-color);
+}
+.Add_DU_Msg #Department_Element .descriptionDiv > div:first-child {
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+/* 操作五 */
+.Add_DU_Msg #Radio_Element {
+  flex: 1;
+  color: var(--DU-main-text-color);
+  padding: 0px 12px 3px 0px;
+}
+.Add_DU_Msg #Radio_Element #inputBox1, .Add_DU_Msg #Radio_Element #inputBox2, .Add_DU_Msg #Radio_Element #inputBox3 {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  position: relative;
+}
+.Add_DU_Msg #Radio_Element input[type=radio] {
+  width: 16px;
+  height: 16px;
+  margin-top: 0px;
+  border: none;
+  outline: none;
+  overflow: initial;
+  position: relative;
+}
+.Add_DU_Msg #Radio_Element input[type=radio]:after {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0px;
+  left: 0px;
+  content: " ";
+  background-color: var(--DU-main-bg-color);
+  display: inline-block;
+  visibility: visible;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 0.3px solid var(--DU-main-icon-color);
+}
+.Add_DU_Msg #Radio_Element input[type=radio]:checked:after {
+  border: none !important;
+}
+.Add_DU_Msg #Radio_Element input[type=radio]:checked:before {
+  content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTJweCIgaGVpZ2h0PSIxMnB4IiB0PSIxNjg4Mzc5NjA2NDg1IiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI3ODAxIj48cGF0aCBkPSJNNTUuMTY4IDQ2Ny43OTdhNDIuNjY3IDQyLjY2NyAwIDAgMSA1Ni4zMi0zLjU0MWw0LjAxIDMuNTQxIDMwMS42OTcgMzAxLjczOWE0Mi42NjcgNDIuNjY3IDAgMCAxLTU2LjMyIDYzLjg3MmwtNC4wMTEtMy41NDFMNTUuMTY4IDUyOC4xN2E0Mi42NjcgNDIuNjY3IDAgMCAxIDAtNjAuMzc0eiIgcC1pZD0iMjc4MDIiIGZpbGw9IiNmZmZmZmYiLz48cGF0aCBkPSJNODk5LjI0MyAyMjUuODc3YTQyLjY2NyA0Mi42NjcgMCAwIDEgNjQgNTYuMjM1bC0zLjU4NCA0LjAxTDQxNy4yOCA4MjkuODY4YTQyLjY2NyA0Mi42NjcgMCAwIDEtNjQtNTYuMzJsMy41NDEtNC4wNTQgNTQyLjQyMi01NDMuNjE2eiIgcC1pZD0iMjc4MDMiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=");
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 16px;
+  height: 16px;
+  background: var(--DU-main-text-primary-color);
+  font-weight: 400;
+  border-radius: 100%;
+  box-sizing: border-box;
+  font-size: 12px;
+  z-index: 1;
+  padding-top: 0px;
+  padding-left: 2.22px;
+  border: none;
+}
+.Add_DU_Msg #Radio_Element label {
+  margin-left: 8px;
+  margin-right: 8px;
+  font-size: 14px;
+}
+.Add_DU_Msg #Radio_Element #DateTime {
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--DU-main-text-color);
+  border: 1px solid var(--DU-main-border-color);
+  height: 32px;
+  box-sizing: border-box;
+  padding: 0px 11px;
+  border-radius: 2px;
+}
+.Add_DU_Msg #Radio_Element .date_time_icon {
+  position: relative;
+  left: -22px;
+  top: 1px;
+  font-size: 14px;
+}
+.Add_DU_Msg #Radio_Element .date_time_icon svg {
+  fill: rgba(0, 0, 0, 0.25);
+}
+
+/* Footer */
+.Add_DU_Msg .DUBox_Footer {
+  width: 100%;
+  height: 53px;
+  box-sizing: border-box;
+  background-color: var(--DU-main-bg-color);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 16px;
+  justify-content: flex-end;
+  border-top: 1px solid var(--DU-main-box-border-color);
+  font-size: 14px;
+  z-index: 10000;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.Add_DU_Msg .DUBox_Footer .DUBox_Footer_Submit {
+  padding: 0px 15px;
+  line-height: 32px;
+  color: #ffffff;
+  border-radius: 4px;
+  background-color: var(--DU-main-bg-primary-color);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  -webkit-transition: background-color 0.3s;
+}
+.Add_DU_Msg .DUBox_Footer .DUBox_Footer_Submit:hover {
+  background-color: rgba(53, 145, 244, 0.7);
+}
+.Add_DU_Msg .DUBox_Footer .DUBox_Footer_Cancel {
+  padding: 0px 15px;
+  line-height: 30px;
+  color: var(--DU-main-text-color);
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: color 0.3s, border 0.3s;
+  -webkit-transition: color 0.3s, border 0.3s;
+}
+.Add_DU_Msg .DUBox_Footer .DUBox_Footer_Cancel:hover {
+  border: 1px solid var(--DU-main-bg-primary-color);
+  color: var(--DU-main-bg-primary-color);
+}
+
+/* 自定义Message组件 */
+.DU_Message {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999999999;
+  display: flex;
+  align-items: center;
+  color: var(--DU-main-text-color);
+  background: var(--DU-main-bg-color);
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  pointer-events: all;
+  font-size: 14px;
+}
+.DU_Message .icon {
+  margin-right: 0px;
+}
+.DU_Message .icon svg {
+  vertical-align: bottom;
+}
+.DU_Message.DU_Message-info svg {
+  fill: var(--DU-main-bg-primary-color);
+}
+.DU_Message.DU_Message-error svg {
+  fill: #ff4d4f;
+}
+.DU_Message.DU_Message-success svg {
+  fill: #52c41a;
+}
+
+/* layui - 时间控件样式 */
+.layui-laydate-footer .laydate-btns-clear {
+  display: none;
+}
+
+.layui-laydate-footer .laydate-btns-now {
+  margin-right: 6px;
+}
+
+.layui-laydate-header i svg {
+  vertical-align: middle !important;
+}
+.layui-laydate-header .laydate-prev-y {
+  margin-top: -2px;
+}
+.layui-laydate-header .laydate-prev-m {
+  margin-top: -1px;
+}
+.layui-laydate-header .laydate-next-m {
+  transform: rotate(180deg);
+  margin-top: 0.5px;
+}
+.layui-laydate-header .laydate-next-y {
+  margin-top: -2px;
+}
+
+@media (prefers-color-scheme: light) {
+  div.layui-laydate[id^=layui-laydate].layui-laydate, div.layui-laydate[id^=layui-laydate] .layui-laydate-hint {
+    background-color: #ffffff;
+    color: rgba(0, 0, 0, 0.85);
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #ccd6dd;
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-header span {
+    color: #363a45 !important;
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-header span:hover {
+    color: #3591f4 !important;
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-header i {
+    color: rgba(0, 0, 0, 0.25) !important;
+    font-size: 14px;
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-content td {
+    color: rgba(0, 0, 0, 0.85);
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-content .laydate-day-prev, div.layui-laydate[id^=layui-laydate] .layui-laydate-content .laydate-day-next {
+    color: rgba(0, 0, 0, 0.25);
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-content .layui-this {
+    background: #3591f4 !important;
+    border-radius: 2px;
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-content .layui-this div {
+    background: #3591f4 !important;
+    border-radius: 2px;
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-content .laydate-time-list li.layui-this {
+    background: rgba(53, 145, 244, 0.1) !important;
+    color: rgba(0, 0, 0, 0.85) !important;
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-content .laydate-time-list li {
+    color: rgba(0, 0, 0, 0.85) !important;
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-content .laydate-time-list li ol li:hover {
+    background-color: #f2f4f9;
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-footer span {
+    background: transparent;
+    border: none;
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-footer .laydate-btns-time {
+    border: none;
+    color: #3591f4;
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-footer .laydate-btns-now:hover {
+    color: #363a45;
+  }
+  div.layui-laydate[id^=layui-laydate] .layui-laydate-footer .laydate-btns-confirm {
+    color: #ffffff;
+    background: #3591f4;
+    line-height: 26px;
+    border-radius: 2px;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .layui-laydate.layui-laydate, .layui-laydate .layui-laydate-hint {
+    background-color: #1c1c1c !important;
+    border: none;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.48), 0 6px 16px 0 rgba(0, 0, 0, 0.32), 0 9px 28px 8px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0px 3px 6px -2px #dde6f0; */
+  }
+  .layui-laydate .layui-laydate-header {
+    border-bottom-color: #303030 !important;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .layui-laydate .layui-laydate-header span:hover, .layui-laydate .layui-laydate-header i:hover {
+    color: #3591f4 !important;
+  }
+  .layui-laydate .layui-laydate-header i {
+    font-size: 14px;
+  }
+  .layui-laydate .layui-laydate-header i svg {
+    fill: rgba(255, 255, 255, 0.4);
+  }
+  .layui-laydate .layui-laydate-header i svg:hover {
+    fill: rgba(255, 255, 255, 0.7);
+  }
+  .layui-laydate .layui-laydate-content th {
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .layui-laydate .layui-laydate-content .laydate-day-prev, .layui-laydate .layui-laydate-content .laydate-day-next {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  .layui-laydate .layui-laydate-content .laydate-day-prev:hover div, .layui-laydate .layui-laydate-content .laydate-day-next:hover div {
+    background-color: #161616 !important;
+    color: rgba(255, 255, 255, 0.3);
+  }
+  .layui-laydate .layui-laydate-content td {
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .layui-laydate .layui-laydate-content td:not(.layui-this):hover div {
+    background-color: #161616 !important;
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .layui-laydate .layui-laydate-content td.layui-this {
+    background: #1890ff !important;
+    border-radius: 2px;
+  }
+  .layui-laydate .layui-laydate-content td.layui-this > div {
+    background: #1890ff !important;
+    border-radius: 2px;
+  }
+  .layui-laydate .layui-laydate-content .laydate-year-list, .layui-laydate .layui-laydate-content .laydate-month-list {
+    background-color: #1c1c1c;
+  }
+  .layui-laydate .layui-laydate-content .laydate-year-list li, .layui-laydate .layui-laydate-content .laydate-month-list li {
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .layui-laydate .layui-laydate-content .laydate-year-list li:not(.layui-this):hover, .layui-laydate .layui-laydate-content .laydate-month-list li:not(.layui-this):hover {
+    background-color: #161616 !important;
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .layui-laydate .layui-laydate-content .laydate-year-list .layui-this, .layui-laydate .layui-laydate-content .laydate-month-list .layui-this {
+    background: #1890ff !important;
+    border-radius: 2px;
+  }
+  .layui-laydate .layui-laydate-content .laydate-year-list .layui-this > div, .layui-laydate .layui-laydate-content .laydate-month-list .layui-this > div {
+    background: #1890ff !important;
+    border-radius: 2px;
+  }
+  .layui-laydate .layui-laydate-content .laydate-time-list {
+    background-color: #1c1c1c;
+  }
+  .layui-laydate .layui-laydate-content .laydate-time-list > li > p {
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .layui-laydate .layui-laydate-content .laydate-time-list li ol {
+    border-color: #303030;
+  }
+  .layui-laydate .layui-laydate-content .laydate-time-list li:hover {
+    background-color: transparent;
+    color: #898d97;
+  }
+  .layui-laydate .layui-laydate-content .laydate-time-list li ol li:hover {
+    background-color: #161616;
+  }
+  .layui-laydate .layui-laydate-content .laydate-time-list .layui-this {
+    background: rgba(53, 145, 244, 0.1) !important;
+  }
+  .layui-laydate .layui-laydate-footer {
+    border-top-color: #303030;
+  }
+  .layui-laydate .layui-laydate-footer span {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .layui-laydate .layui-laydate-footer .laydate-btns-time {
+    border: none;
+    color: #3591f4 !important;
+  }
+  .layui-laydate .layui-laydate-footer .laydate-btns-now:hover {
+    color: #ffffff;
+  }
+  .layui-laydate .layui-laydate-footer .laydate-btns-confirm {
+    color: #ffffff;
+    background: #3591f4;
+    border-radius: 2px;
+    line-height: 26px;
+  }
+}
