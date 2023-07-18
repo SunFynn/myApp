@@ -18,7 +18,7 @@ declare module 'react-fittext';
 declare module 'bizcharts-plugin-slider';
 
 interface Window {
-  _DU: any;
+  DU_msg: any;
 }
 
 // preview.pro.ant.design only do not use in your production ;

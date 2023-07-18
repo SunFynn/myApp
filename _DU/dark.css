@@ -1,5 +1,4 @@
 @import url(./light.css);
-
 :root {
   --DU-main-bg-color: #1c1c1c;
   --DU-main-text-color: #ffffff;
@@ -13,22 +12,141 @@
   --DU-main-bg-gray-color: #161616;
 }
 
-.Add_DU_Msg .DUBox_Footer_Cancel{
+.Add_DU_Msg .DUBox_Footer_Cancel {
   color: var(--DU-main-text-primary-color) !important;
   border-color: var(--DU-main-text-primary-color) !important;
-  transition: color .3s, border-color .3s;
+  transition: color 0.3s, border-color 0.3s;
 }
 
-.Add_DU_Msg .DUBox_Footer_Cancel:hover{
+.Add_DU_Msg .DUBox_Footer_Cancel:hover {
   color: rgba(53, 145, 244, 0.7) !important;
   border-color: rgba(53, 145, 244, 0.7) !important;
 }
 
-.Add_DU_Msg #TextArea_Element .AppBox{
+.Add_DU_Msg #TextArea_Element .AppBox {
   border: none !important;
   background-color: var(--DU-main-bg-gray-color);
 }
 
-.Add_DU_Msg #Radio_Element .date_time_icon svg{
+.Add_DU_Msg #Radio_Element .date_time_icon svg {
   fill: rgba(255, 255, 255, 0.3);
+}
+
+.layui-laydate.layui-laydate, .layui-laydate .layui-laydate-hint {
+  background-color: #1c1c1c !important;
+  border: none;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.48), 0 6px 16px 0 rgba(0, 0, 0, 0.32), 0 9px 28px 8px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0px 3px 6px -2px #dde6f0; */
+}
+.layui-laydate .layui-laydate-header {
+  border-bottom-color: #303030 !important;
+  background-color: var(--DU-main-bg-color) !important;
+}
+.layui-laydate .layui-laydate-header span {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.layui-laydate .layui-laydate-header span:hover, .layui-laydate .layui-laydate-header i:hover {
+  color: #3591f4 !important;
+}
+.layui-laydate .layui-laydate-header i {
+  font-size: 14px;
+}
+.layui-laydate .layui-laydate-header i svg {
+  fill: rgba(255, 255, 255, 0.4);
+}
+.layui-laydate .layui-laydate-header i svg:hover {
+  fill: rgba(255, 255, 255, 0.7);
+}
+.layui-laydate .layui-laydate-content th {
+  color: rgba(255, 255, 255, 0.65);
+}
+.layui-laydate .layui-laydate-content .laydate-day-prev, .layui-laydate .layui-laydate-content .laydate-day-next {
+  color: rgba(255, 255, 255, 0.3);
+}
+.layui-laydate .layui-laydate-content .laydate-day-prev:hover div, .layui-laydate .layui-laydate-content .laydate-day-next:hover div {
+  background-color: #161616 !important;
+  color: rgba(255, 255, 255, 0.3);
+}
+.layui-laydate .layui-laydate-content td {
+  color: rgba(255, 255, 255, 0.65);
+}
+.layui-laydate .layui-laydate-content td:not(.layui-this):hover div {
+  background-color: #161616 !important;
+  color: rgba(255, 255, 255, 0.65);
+}
+.layui-laydate .layui-laydate-content td.layui-this {
+  background: #1890ff !important;
+  border-radius: 2px;
+}
+.layui-laydate .layui-laydate-content td.layui-this > div {
+  background: #1890ff !important;
+  border-radius: 2px;
+}
+.layui-laydate .layui-laydate-content .laydate-year-list, .layui-laydate .layui-laydate-content .laydate-month-list {
+  background-color: #1c1c1c;
+}
+.layui-laydate .layui-laydate-content .laydate-year-list li, .layui-laydate .layui-laydate-content .laydate-month-list li {
+  color: rgba(255, 255, 255, 0.65);
+}
+.layui-laydate .layui-laydate-content .laydate-year-list li:not(.layui-this):hover, .layui-laydate .layui-laydate-content .laydate-month-list li:not(.layui-this):hover {
+  background-color: #161616 !important;
+  color: rgba(255, 255, 255, 0.65);
+}
+.layui-laydate .layui-laydate-content .laydate-year-list .layui-this, .layui-laydate .layui-laydate-content .laydate-month-list .layui-this {
+  background: #1890ff !important;
+  border-radius: 2px;
+}
+.layui-laydate .layui-laydate-content .laydate-year-list .layui-this > div, .layui-laydate .layui-laydate-content .laydate-month-list .layui-this > div {
+  background: #1890ff !important;
+  border-radius: 2px;
+}
+.layui-laydate .layui-laydate-content .laydate-time-list {
+  background-color: #1c1c1c;
+}
+.layui-laydate .layui-laydate-content .laydate-time-list li {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+.layui-laydate .layui-laydate-content .laydate-time-list > li > p {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+.layui-laydate .layui-laydate-content .laydate-time-list li ol {
+  border-color: #303030;
+}
+.layui-laydate .layui-laydate-content .laydate-time-list li:hover {
+  background-color: transparent;
+  color: #898d97;
+}
+.layui-laydate .layui-laydate-content .laydate-time-list li ol li:hover {
+  background-color: #161616;
+}
+.layui-laydate .layui-laydate-content .laydate-time-list li.layui-this {
+  background: rgba(53, 145, 244, 0.1) !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+.layui-laydate .layui-laydate-footer {
+  border-top-color: #303030;
+}
+.layui-laydate .layui-laydate-footer span {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+}
+.layui-laydate .layui-laydate-footer .laydate-btns-time {
+  border: none;
+  color: #3591f4 !important;
+}
+.layui-laydate .layui-laydate-footer .laydate-disabled {
+  color: #898d97 !important;
+}
+.layui-laydate .layui-laydate-footer .laydate-disabled:hover {
+  color: #898d97 !important;
+}
+.layui-laydate .layui-laydate-footer .laydate-btns-now:hover {
+  color: #ffffff;
+}
+.layui-laydate .layui-laydate-footer .laydate-btns-confirm {
+  color: #ffffff;
+  background: #3591f4;
+  border-radius: 2px;
+  line-height: 26px;
 }

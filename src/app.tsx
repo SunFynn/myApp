@@ -56,28 +56,33 @@ export const layout: RunTimeLayoutConfig = ({ initialState }: any) => {
           {!props.location?.pathname?.includes('/login') && (
             <DragIcon
               src={'http://www.wtz-lmm.cn/publicShareCDN/image/3.jpg'}
+              title={'DUDUDUDU'}
               onClick={() => {
                 console.log('新建DU');
+                /* 配置参考文档 http://www.wtz-lmm.cn/publicShareCDN/_DU/DU.html */
                 const options = {
-                  type: 0, // 0 应用内DU   1 短信DU    2 电话DU （暂未开放）
-                  theme: 1, // !1 浅色模式   1 黑暗模式
-                  langauge: 'zh-CN', // 语言环境   zh-CN 中文   en-US 英文   ja-JP 日文
-                  title: '新建DUDUDUDU', // DU弹框名称
-                  env: 'beta', // pord 正式接口   beta 测试接口
-                  source: 'salarySheet', // 来源   salarySheet 工资条
-                  userControl: true, // 人员选择限制，不允许选择传入人员之外的人   例 salarySheet  [工资条]
+                  type: 0,
+                  theme: 0,
+                  langauge: 'zh-CN',
+                  title: 'DUDUDUDU',
+                  env: 'beta',
+                  source: 'salarySheet',
+                  userControl: true,
+                  changeDUType: true,
+                  session: true,
                   params: {
                     userList: [
                       { id: 202429, name: '李春阳' },
                       { id: 202444, name: '魏廷州' },
-                    ], // 用户列表  对象中需要id、name
+                    ],
                     organize_du: 0, // 0 普通DU   1 组织DU
-                    iconUrl: 'http://www.wtz-lmm.cn/publicShareCDN/image/3.jpg', // 执行DU的事由对应app的icon
-                    form_title: '请假请假', // 执行DU的事由的名称
-                    DuText: '请假请假描述描述，啊噢雷雷', // 来源app的DU事件描述
-                    regularTimeRadio: true, // 定时DU，radio
-                    DuTime: '2020-10-10 10:10:10', // 定时DU - 时间
-                    separateRadio: true, // 分别发送DU，radio
+                    iconUrl: 'http://www.wtz-lmm.cn/publicShareCDN/image/3.jpg',
+                    form_title: '请假请假',
+                    DuText: '请假请假描述描述，啊噢雷雷',
+                    again: 5,
+                    regularTimeRadio: true,
+                    DuTime: '2020-10-10 10:10:10',
+                    separateRadio: true,
                     appendix: [
                       {
                         file_type: 'web',
@@ -85,7 +90,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }: any) => {
                         iconType: 4,
                         title: '请假请假',
                       },
-                    ], // 附件信息[不同来源所需的附近信息不同，各项目自行配置]
+                    ],
                   },
                   userInfo: {
                     accessToken: '77a7e71f6abbaca55f562fc35ef8af9b',
@@ -128,7 +133,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }: any) => {
                   },
                 };
 
-                window._DU.init(
+                window.DU_msg.init(
                   options,
                   (status: string, params: any, data: any) => {
                     /* 发送操作的callback函数，
@@ -138,10 +143,10 @@ export const layout: RunTimeLayoutConfig = ({ initialState }: any) => {
                 */
                     console.log(status, params, data);
                     if (status === 'fulfilled') {
-                      window._DU.Message.success('发送成功');
-                      window._DU.closeHandle(); // 关闭弹框方法
+                      window.DU_msg.Message.success('发送成功');
+                      window.DU_msg.closeHandle(); // 关闭弹框方法
                     } else if (status === 'rejected') {
-                      window._DU.Message.error(data.message || '接口错误错误嘞');
+                      window.DU_msg.Message.error(data.message || '接口错误错误嘞');
                     }
                   },
                   () => {
@@ -150,7 +155,6 @@ export const layout: RunTimeLayoutConfig = ({ initialState }: any) => {
                   },
                 );
               }}
-              title={'DUDUDUDU'}
             />
           )}
 

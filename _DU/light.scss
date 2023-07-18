@@ -409,7 +409,7 @@
     font-size: 12px;   // 本地html样式会有偏差，项目中使用可以
     z-index: 1;
     padding-top: 0px;
-    padding-left: 2.22px;
+    padding-left: 2.5px;
     border: none;
   }
   label{
@@ -550,188 +550,71 @@
     margin-top: -2px;
   }
 }
-@media (prefers-color-scheme: light) {
-  div.layui-laydate[id^='layui-laydate']{
-    &.layui-laydate, .layui-laydate-hint{
-      background-color: #ffffff;
-      color: rgba(0,0,0,.85);
-    }
-    .layui-laydate-header{
-      background-color: #ffffff !important;
-      border-bottom: 1px solid #ccd6dd;
-      span{
-        color: #363a45 !important;
-        &:hover{
-          color: #3591f4 !important;
-        }
-      }
-      i{
-        color: rgba(0,0,0,.25) !important;
-        font-size: 14px;
-      }
-    }
-    .layui-laydate-content {
-      td {
-        color: rgba(0,0,0,.85);
-      }
-      .laydate-day-prev, .laydate-day-next {
-        color: rgba(0,0,0,.25);;
-      }
-      .layui-this{
-        background: #3591f4 !important;
-        border-radius: 2px;
-        div{
-          background: #3591f4 !important;
-          border-radius: 2px;
-        }
-      }
-      .laydate-time-list li.layui-this{
-        background: rgba(53,145,244,.1) !important;
-        color: rgba(0,0,0,.85) !important;
-      }
-      .laydate-time-list li {
-        color: rgba(0,0,0,.85) !important;
-        ol li:hover{
-          background-color: #f2f4f9;
-        }
-      }
-    }
-    .layui-laydate-footer{
-      span{
-        background: transparent;
-        border: none;
-      }
-      .laydate-btns-time{
-        border: none;
-        color: #3591f4;
-      }
-      .laydate-btns-now{
-        &:hover{
-          color: #363a45;
-        }
-      }
-      .laydate-btns-confirm{
-        color: #ffffff;
-        background: #3591f4;
-        line-height: 26px;
-        border-radius: 2px;
-      }  
-    }
-  }
-}
 
-@media (prefers-color-scheme: dark) {
-  .layui-laydate{
-    &.layui-laydate, .layui-laydate-hint{
-      background-color: #1c1c1c !important;
-      border: none;
-      box-shadow: 0 3px 6px -4px rgb(0 0 0 / 48%), 0 6px 16px 0 rgb(0 0 0 / 32%), 0 9px 28px 8px rgb(0 0 0 / 20%);
-      /* box-shadow: 0px 3px 6px -2px #dde6f0; */
-    }
-    .layui-laydate-header{
-      border-bottom-color: #303030 !important;
-      color: rgba(255, 255, 255, 0.85);
-      span, i{
-        &:hover{
-          color: #3591f4 !important;
-        }
-      }
-      i{
-        font-size: 14px;
-        svg{
-          fill: rgba(255, 255, 255, 0.4);
-          &:hover{
-            fill: rgba(255, 255, 255, 0.7);
-          }
-        }
-      }
-    }
-    .layui-laydate-content{
-      th{
-        color: rgba(255, 255, 255, 0.65);
-      }
-      .laydate-day-prev, .laydate-day-next {
-        color: rgba(255, 255, 255, 0.3);
-        &:hover div{
-          background-color: #161616 !important;
-          color: rgba(255, 255, 255, 0.3);
-        }
-      }
-      td {
-        color: rgba(255, 255, 255, 0.65);
-        &:not(.layui-this):hover div{
-          background-color: #161616 !important;
-          color: rgba(255, 255, 255, 0.65);
-        }
-      }
-      td.layui-this{
-        background: #1890ff !important;
-        border-radius: 2px;
-        &>div{
-          background: #1890ff !important;
-          border-radius: 2px;
-        }
-      }
-      .laydate-year-list, .laydate-month-list{
-        background-color: #1c1c1c;
-        li{
-          color: rgba(255, 255, 255, 0.65);
-          &:not(.layui-this):hover{
-            background-color: #161616 !important;
-            color: rgba(255, 255, 255, 0.65);
-          }
-        }
-        .layui-this{
-          background: #1890ff !important;
-          border-radius: 2px;
-          &>div{
-            background: #1890ff !important;
-            border-radius: 2px;
-          }
-        }
-      }
-      .laydate-time-list {
-        background-color: #1c1c1c;
-        &>li>p{
-          color: rgba(255, 255, 255, 0.65);
-        }
-        li ol{
-          border-color: #303030;
-        }
-        li:hover{
-          background-color: transparent;
-          color: #898d97;
-        }
-        li ol li:hover{
-          background-color: #161616;
-        }
-        .layui-this{
-          background: rgba(53,145,244,.1) !important;
-        }
-      }
-    }
-    .layui-laydate-footer{
-      border-top-color: #303030;
-      span{
-        background: transparent;
-        border: none;
-        color: rgba(255, 255, 255, 0.8);
-      }
-      .laydate-btns-time{
-        border: none;
+.layui-laydate{
+  &.layui-laydate, .layui-laydate-hint{
+    background-color: #ffffff;
+    color: rgba(0,0,0,.85);
+  }
+  .layui-laydate-header{
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #ccd6dd;
+    span{
+      color: #363a45 !important;
+      &:hover{
         color: #3591f4 !important;
       }
-      .laydate-btns-now{
-        &:hover{
-          color: #ffffff;
-        }
-      }
-      .laydate-btns-confirm{
-        color: #ffffff;
-        background: #3591f4;
+    }
+    i{
+      color: rgba(0,0,0,.25) !important;
+      font-size: 14px;
+    }
+  }
+  .layui-laydate-content {
+    td {
+      color: rgba(0,0,0,.85);
+    }
+    .laydate-day-prev, .laydate-day-next {
+      color: rgba(0,0,0,.25);;
+    }
+    .layui-this{
+      background: #3591f4 !important;
+      border-radius: 2px;
+      div{
+        background: #3591f4 !important;
         border-radius: 2px;
-        line-height: 26px;
       }
     }
+    .laydate-time-list li.layui-this{
+      background: rgba(53,145,244,.1) !important;
+      color: rgba(0,0,0,.85) !important;
+    }
+    .laydate-time-list li {
+      color: rgba(0,0,0,.85) !important;
+      ol li:hover{
+        background-color: #f2f4f9;
+      }
+    }
+  }
+  .layui-laydate-footer{
+    span{
+      background: transparent;
+      border: none;
+    }
+    .laydate-btns-time{
+      border: none;
+      color: #3591f4;
+    }
+    .laydate-btns-now{
+      &:hover{
+        color: #363a45;
+      }
+    }
+    .laydate-btns-confirm{
+      color: #ffffff;
+      background: #3591f4;
+      line-height: 26px;
+      border-radius: 2px;
+    }  
   }
 }
