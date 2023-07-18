@@ -80,7 +80,7 @@
     path: '/utils',
     name: '封装方法调用展示',
     icon: 'SlidersOutlined',
-    component: './utilsCom',
+    component: './utilsPage',
   },
   {
     path: '/admin',

@@ -39,7 +39,7 @@ export default defineConfig({
   },
   history: { type: 'hash' },
   mfsu: {},
-  // webpack5: {},
+  webpack5: {},
   exportStatic: {},
   externals: {
     BMap: 'BMap',
