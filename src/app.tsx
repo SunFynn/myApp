@@ -58,7 +58,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }: any) => {
               src={'http://www.wtz-lmm.cn/publicShareCDN/image/3.jpg'}
               title={'DUDUDUDU'}
               onClick={() => {
-                console.log('新建DU');
+                console.log('新建DU', '========');
                 /* 配置参考文档 http://www.wtz-lmm.cn/publicShareCDN/_DU/DU.html */
                 const options = {
                   type: 0,
