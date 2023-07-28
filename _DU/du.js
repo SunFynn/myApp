@@ -146,14 +146,6 @@
       this.SERVERPATH = "https://static-beta.6du.cn/public/widget/DU_msg";
 
       /** 引入项目中所用的cdn链接 */
-      // 加载组织架构cdn
-      if(!window.ContactRelate){
-        const ContactRelate = this.createElement('script', {
-          src: 'https://static-beta.6du.cn/public/contact_relate_v1.0/contact.relate.js'
-        });
-        document.head.appendChild(ContactRelate);
-      }
-     
       // 加载layui cdn
       const layuiJS = this.createElement('script', {
         type: 'text/javascript',
@@ -203,6 +195,7 @@
 
     // 切换主题模式 [浅色|暗黑]
     changeTheme(theme){
+      this.options.theme = theme;
       const darkLink = document.querySelector('link[title="darkLink"]');
       if(theme === 1){
         if(!darkLink){
@@ -217,7 +210,7 @@
         if(darkLink) document.head.removeChild(darkLink);
       }
 
-      window.ContactRelate.loadTheme(theme);
+      if(window.ContactRelate) window.ContactRelate.loadTheme(theme);
     }
 
     // 切换语言环境 [中文|英文|日文]
@@ -388,8 +381,14 @@
     Loading_Element(){
       const LoadingElement = this.createElement('div', {
         classname: 'LoadingElement',
+        // <span class='loadingSpan'></span>
         innerHTML: `
-          <span class='loadingSpan'></span>
+          <span class='loading-dot'>
+            <i class='loading-dot-item'></i>
+            <i class='loading-dot-item'></i>
+            <i class='loading-dot-item'></i>
+            <i class='loading-dot-item'></i>
+          </span>
         `
       });
       this.DUBox.appendChild(LoadingElement)
@@ -511,17 +510,37 @@
         classname: 'AddUser_Element_Add',
         innerHTML: `${this.iconConfig.addIcon}<span>${this.langauge.DU_addBtn}</span>`,
         onclick: ()=>{
-          window.ContactRelate.init({
+          const params={
             ...this.options.contactRelate,
+            theme: this.options.theme,
             defaultData: this.localParams.userList || [],
             onSubmit: (data)=>{ this.submitHandle(data, divBox) }
-          })
+          };
+
+          if(!window.ContactRelate){
+            this.loadContactRelate(params);
+            return;
+          }
+          window.ContactRelate.init(params);
         }
       });
       divBox.appendChild(AddBtn);
       this.AddUser_List_Element(divBox);
       AddUser_Element.appendChild(divBox);
       return AddUser_Element;
+    }
+
+    // 加载组织架构cdn
+    loadContactRelate(params=null){
+      const ContactRelate = this.createElement('script', {
+        src: 'https://static-beta.6du.cn/public/contact_relate_v1.0/contact.relate.js'
+      });
+      document.head.appendChild(ContactRelate);
+      ContactRelate.onload=function(){
+        if(params){
+          window.ContactRelate.init(params);
+        }
+      }
     }
 
     // 组织架构弹框 添加人员

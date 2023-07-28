@@ -21,7 +21,7 @@
         companyName: "这是一个很大的公司",
       }
       const userInfo2 = {
-        accessToken: '0f4297b93097b07ab88b4b30ce7753e8',
+        accessToken: '6ee264d2fad8ffe2a58885332378e227',
         companyId: '1484',
         userId: 'a77877db93fa552c6c26125a3c0529a0',
         deviceId: '1129cebd1077a83ae1e91110fece07e0',
@@ -40,10 +40,11 @@
       }
 
       const env = 'beta';
+      let theme = 0;
       function init() {
         const options = {
           type: 1,     // 0 应用内DU   1 短信DU    2 电话DU （暂未开放） 
-          theme: 0,    // !1 浅色模式   1 黑暗模式
+          theme,    // !1 浅色模式   1 黑暗模式
           langauge: 'zh-CN',    // 语言环境   zh-CN 中文   en-US 英文   ja-JP 日文
           title: '新建DUDUDUDU',    // DU弹框名称
           env,   // prod 正式接口   beta 测试接口
@@ -76,7 +77,7 @@
           userInfo: userInfo2,
           // 组织架构人员弹框参数配置
           contactRelate: {
-            theme: 0,
+            theme: 1,
             isMuliteOrg: 1,
             title: '添加人员',
             type: 'user',
@@ -94,7 +95,7 @@
               showRelation: true,
               showSession: false,
             },
-            userInfo: userInfo2_prod
+            userInfo: userInfo2
           }
         }
         
@@ -123,21 +124,21 @@
 
       init();
 
-      // let theme = 1;
-      // setInterval(()=>{
+      /** 切换主题颜色 */
+      // setTimeout(()=>{
       //   theme = theme === 1 ? 0 : 1;
       //   window.DU_msg.changeTheme(theme);
-      // }, 7000)
+      // }, 7000);
 
+      /** 切换语言环境 */
       // setTimeout(()=>{
       //   window.DU_msg.changeLangauge('ja-JP');
       // }, 3000)
 
       const btn = document.querySelector('#btn');
       btn.addEventListener('click', ()=>{
-
-        window.DU_msg.changeTheme(0);
-
+        init();
+        window.DU_msg.changeTheme(1);
       })
     }
   </script>
