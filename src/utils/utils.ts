@@ -1,4 +1,6 @@
 import html2canvas from 'html2canvas';
+import CryptoJS from 'crypto-js';
+import _ from 'lodash';
 
 // 下载图片
 export const downloadCanvesToImage = async (id: string): Promise<void> => {
@@ -160,6 +162,83 @@ export function getFileSize(limit: number) {
   return sizestr;
 }
 console.log(getFileSize(111111111));
+
+// 加密
+export const webEncrypt = function (msg: string, key?: string, iv?: string) {
+  const m = CryptoJS.enc.Utf8.parse(msg);
+  const k = key ? key : CryptoJS.enc.Utf8.parse('Sixdu-WebCodeKey');
+  const i: any = iv ? iv : CryptoJS.enc.Utf8.parse('Web-CodeKeySixdu');
+  return CryptoJS.AES.encrypt(m, k, {
+    iv: i,
+    padding: CryptoJS.pad.Pkcs7,
+    mode: CryptoJS.mode.CBC,
+  }).ciphertext.toString();
+};
+
+// 从session中获取用户信息
+export function getUserInfo(): any {
+  const userInfo = sessionStorage.getItem('USER-INFO') || '{}';
+  const myUser: any = JSON.parse(userInfo) || null;
+  return myUser;
+}
+
+// 从session中获取语言环境信息
+export function getSessionLang(): any {
+  const lang = sessionStorage.getItem('language') || 'zh-CN';
+  return lang;
+}
+
+// 设置语言环境信息
+export const setSessionLang = (lang: string = 'zh-CN') => {
+  if (lang) {
+    sessionStorage.setItem('language', lang);
+  }
+};
+
+// 通过对象得到url参数(GET请求时使用)
+export function getUrlStringFromObj(obj: any) {
+  let string = '';
+  _.forEach(obj, (value, key) => {
+    console.log(obj, value, key);
+    let val = value;
+    if (typeof value == 'object') {
+      val = JSON.stringify(value);
+    }
+    string += string == '' ? `?${key}=${val}` : `&${key}=${val}`;
+  });
+  return string;
+}
+
+//获取字符串的真实长度（字节长度） 中文的字节长度为2
+export const getStrLen = (str: string | undefined): number => {
+  if (!str) {
+    return 0;
+  }
+  const len = str.length;
+  let truelen = 0;
+  for (let x = 0; x < len; x++) {
+    if (str.charCodeAt(x) > 128) {
+      truelen += 2;
+    } else {
+      truelen += 1;
+    }
+  }
+  return truelen;
+};
+
+/**
+ * 生成随意字符串
+ * @param length number - 要生成的字符串长度
+ * @param [chars] string - 字符集
+ */
+export const randomString = (
+  length: number,
+  chars: string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+): string => {
+  let result = '';
+  for (let i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+  return result;
+};
 
 /* 正则 */
 // url地址
