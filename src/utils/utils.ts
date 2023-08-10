@@ -4,6 +4,7 @@ import _ from 'lodash';
 
 // 下载图片
 export const downloadCanvesToImage = async (id: string): Promise<void> => {
+  // html2canves将页面元素转化为canves画布
   let canvas;
   if (id.startsWith('.')) {
     canvas = await html2canvas(document.querySelector(id) as HTMLElement);
@@ -11,21 +12,38 @@ export const downloadCanvesToImage = async (id: string): Promise<void> => {
     canvas = await html2canvas(document.getElementById(id) as HTMLElement);
   }
 
-  // 方法1：转化为base64模式下载
-  // const shareUrl = canvas.toDataURL('image/png');    // 转化的为base64格式的图片。例 data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ...9oADAMBAAIRAxEAPwD/AD/6AP/Z"
+  /**
+   * 方法1：canves转化为base64模式
+   * HTMLCanvesElement.toDataURL(type?, quality?) 将canves画布转化的为base64格式。
+   * @param type  可选 图片格式，默认为 image/png
+   * @param quality  可选 图片质量，取值范围0 - 1
+   */
+  // const shareUrl = canvas.toDataURL('image/png');    // 。例 data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ...9oADAMBAAIRAxEAPwD/AD/6AP/Z"
   // const a = document.createElement('a');
   // const handle = new MouseEvent('click');
   // a.download = '二维码.png';
-  // a.href = shareUrl;
+  // a.href = shareUrl;            // href属性对应的是base64格式就可以正常下载了，  href如果是图片网址路径，即使设置了download，也可能不生效，只是打开图片网址 【兼容问题】
   // a.dispatchEvent(handle);
 
-  // 方法2：转化为blob
+  /**
+   * 方法2：canves转化为blob
+   * HTMLCanvasElement.toBlob(callback, type?, quality?) 将canves画布转化的为blob格式
+   * @param callback  回调函数，可获得一个单独的 Blob 对象参数。如果图像未被成功创建，可能会获得 null 值
+   * @param type  可选 图片格式，默认为 image/png
+   * @param quality  可选 图片质量，取值范围0 - 1
+   *
+   * URL.createObjectURL(object) 静态方法会创建一个 DOMString。
+   * @param object 用于创建 URL 的 File 对象、Blob 对象或者 MediaSource 对象；
+   *
+   * URL.revokeObjectURL(DOMString)  释放之前URL.createObjectURL创建的DOMString。
+   */
   canvas.toBlob(
     async (Blob: any) => {
       const a = document.createElement('a');
       a.download = '二维码.png';
       a.style.display = 'none';
       a.type = 'image/png';
+      console.log(Blob, URL.createObjectURL(Blob)); // Blob{size: 10731, type: 'image/png'}  'blob:http://192.168.1.199:8001/fd48dc96-8b32-4c45-b866-d7f9c031e25b'
       a.href = URL.createObjectURL(Blob);
       document.body.appendChild(a);
       a.click();
