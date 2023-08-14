@@ -1,0 +1,690 @@
+@charset "UTF-8";
+:root {
+  --DUApp-main-bg-color: #ffffff;
+  --DUApp-main-text-color: #363a45;
+  --DUApp-second-text-color: #898d97;
+  --DUApp-main-icon-color: #ccd6dd;
+  --DUApp-main-item-icon-color: #363a45;
+  --DUApp-main-border-color: #dde6f0;
+  --DUApp-main-bg-primary-color: #3591f4;
+  --DUApp-main-text-primary-color: #3591f4;
+  --DUApp-main-box-border-color: #f0f0f0;
+  --DUApp-main-bg-gray-color: #f2f4f9;
+}
+
+/*滚动条设置*/
+::-webkit-scrollbar,
+.rc-virtual-list-scrollbar {
+  /*整体部分*/
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb,
+.rc-virtual-list-scrollbar-thumb {
+  /*滑块*/
+  background-color: var(--DU-main-border-color) !important;
+  border-radius: 6px;
+}
+
+.Add_DU_Msg_App {
+  background: var(--DUApp-main-bg-gray-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+.Add_DU_Msg_App .DU_App_Header {
+  background-color: var(--DUApp-main-bg-color);
+  position: relative;
+  border-bottom: 0.5px solid var(--DUApp-main-border-color);
+  height: 45px;
+  box-sizing: border-box;
+}
+.Add_DU_Msg_App .DU_App_Header .DU_App_Header_title {
+  text-align: center;
+  line-height: 44px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--DUApp-main-text-color);
+  width: 80%;
+  margin-left: 11%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.Add_DU_Msg_App .DU_App_Header .DU_App_Header_close {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  height: 20px;
+  cursor: pointer;
+}
+.Add_DU_Msg_App .DU_App_Header .DU_App_Header_close svg {
+  fill: var(--DUApp-main-text-primary-color);
+}
+.Add_DU_Msg_App .DU_App_Content {
+  height: calc(100vh - 45px);
+  overflow: auto;
+  /*滑块*/
+  /* 发送btn */
+}
+.Add_DU_Msg_App .DU_App_Content .Textarea_Element {
+  background: var(--DUApp-main-bg-color);
+  padding-bottom: 10px;
+}
+.Add_DU_Msg_App .DU_App_Content .Textarea_Element .TextareaBox {
+  position: relative;
+  display: flex;
+  padding: 10px 0px 10px 15px;
+  min-height: 44px;
+  vertical-align: middle;
+  overflow: hidden;
+  transition: background-color 0.2s;
+}
+.Add_DU_Msg_App .DU_App_Content .Textarea_Element .TextareaBox textarea {
+  color: var(--DUApp-main-text-color);
+  font-size: 17px;
+  line-height: 25.5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 76px;
+  padding: 0;
+  padding-right: 5px;
+  border: 0;
+  background-color: transparent;
+  overflow: visible;
+  display: block;
+  resize: none;
+  word-break: break-word;
+  word-wrap: break-word;
+  outline: none;
+}
+.Add_DU_Msg_App .DU_App_Content .Textarea_Element .TextareaBox textarea::-moz-placeholder {
+  font-size: 14px;
+}
+.Add_DU_Msg_App .DU_App_Content .Textarea_Element .TextareaBox textarea::placeholder {
+  font-size: 14px;
+}
+.Add_DU_Msg_App .DU_App_Content .Textarea_Element .SourceAppBox {
+  width: 91%;
+  margin-left: 4.5%;
+  background-color: var(--DUApp-main-bg-gray-color);
+  border-radius: 8px;
+  padding: 12px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.Add_DU_Msg_App .DU_App_Content .Textarea_Element .SourceAppBox img {
+  float: left;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+.Add_DU_Msg_App .DU_App_Content .Textarea_Element .SourceAppBox div {
+  width: calc(91% - 24px);
+  float: left;
+  margin-left: 8px;
+  color: var(--DUApp-main-text-color);
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box_Item {
+  position: relative;
+  display: flex;
+  min-height: 44px;
+  vertical-align: middle;
+  overflow: hidden;
+  transition: background-color 0.2s;
+  height: 51px;
+  border-bottom: 0.5px solid var(--DUApp-main-border-color);
+  padding-right: 0;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box_Item > span {
+  display: inline-block;
+  width: 50%;
+  line-height: 34px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  color: var(--DUApp-main-text-color);
+  font-size: 16px;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box_Item > div {
+  width: 50%;
+  display: inline-flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element, .Add_DU_Msg_App .DU_App_Content .Config_Box2_Element {
+  margin-top: 10px;
+  background-color: var(--DUApp-main-bg-color);
+  width: 91%;
+  margin-left: 4.5%;
+  border-radius: 8px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_Item1 {
+  color: var(--DUApp-second-text-color);
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_Item1 .DuApp_person {
+  margin-right: 2px;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_Item1 .DuApp_person + span {
+  width: 16px;
+  height: 16px;
+  vertical-align: bottom;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_Item1 .DuApp_person + span svg {
+  fill: var(--DUApp-main-icon-color);
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_Item2 > div {
+  padding-left: 10px;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_Item2 .Du_type_btn {
+  height: 27px;
+  display: flex;
+  flex: 1 1;
+  justify-content: center;
+  align-items: center;
+  color: var(--DUApp-main-text-primary-color);
+  font-size: 14px;
+  line-height: 1;
+  transition: background 0.2s;
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid var(--DUApp-main-text-primary-color);
+  border-left-width: 0;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_Item2 .Du_type_btn:first-child {
+  border-left-width: 1PX;
+  border-radius: 5px 0 0 5px;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_Item2 .Du_type_btn:last-child {
+  border-radius: 0 5px 5px 0;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_Item2 .Du_type_btn_active {
+  background: var(--DUApp-main-bg-primary-color);
+  color: #ffffff;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_Item3 {
+  cursor: not-allowed;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_Item3 > span {
+  color: var(--DUApp-second-text-color) !important;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_Item3 .companyName {
+  margin-right: 2px;
+  color: var(--DUApp-second-text-color);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_Item3 .companyName + span {
+  width: 16px;
+  height: 16px;
+  vertical-align: bottom;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_Item3 .companyName + span svg {
+  fill: var(--DUApp-main-icon-color);
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_TextMessage {
+  padding: 14px 0;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_TextMessage > div {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--DUApp-second-text-color);
+  line-height: 17px;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_TextMessage .title {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--DUApp-main-text-color);
+  line-height: 22px;
+  margin-bottom: 4px;
+  word-break: break-all;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_TextMessage .personNum, .Add_DU_Msg_App .DU_App_Content .Config_Box1_Element .Config_Box1_TextMessage .departmentNum {
+  margin-left: 4px;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box2_Element .Config_Box2_Item1 {
+  color: var(--DUApp-second-text-color);
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box2_Element .Config_Box2_Item1 .DuApp_again {
+  margin-right: 2px;
+  text-align: right;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box2_Element .Config_Box2_Item1 .DuApp_again + span {
+  width: 16px;
+  height: 16px;
+  vertical-align: bottom;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box2_Element .Config_Box2_Item1 .DuApp_again + span svg {
+  fill: var(--DUApp-main-icon-color);
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box2_Element .Config_Box2_Item2 > div, .Add_DU_Msg_App .DU_App_Content .Config_Box2_Element .Config_Box2_Item3 > div {
+  padding-right: 2px;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box2_Element .Config_Box2_Item4 {
+  height: 51px;
+  padding-right: 0;
+  font-size: 12px;
+  color: var(--DUApp-second-text-color) !important;
+  display: flex;
+  align-items: center;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box2_Element .Config_Box2_DuTime {
+  color: var(--DUApp-second-text-color);
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box2_Element .Config_Box2_DuTime .DuTime {
+  background: transparent !important;
+  text-align: right;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  color: var(--DUApp-second-text-color) !important;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box2_Element .Config_Box2_DuTime .DuTime + span {
+  width: 16px;
+  height: 16px;
+  vertical-align: bottom;
+}
+.Add_DU_Msg_App .DU_App_Content .Config_Box2_Element .Config_Box2_DuTime .DuTime + span svg {
+  fill: var(--DUApp-main-icon-color);
+}
+.Add_DU_Msg_App .DU_App_Content .DU_Switch input[type=checkbox] {
+  appearance: none !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  outline: none;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 50px;
+  height: 30px;
+  border-radius: 15px;
+  background-clip: padding-box;
+  background-color: var(--DUApp-main-border-color);
+}
+.Add_DU_Msg_App .DU_App_Content .DU_Switch input[type=checkbox]:after {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  border: 1px solid #c9c9c9;
+  border-radius: 100%;
+  background-clip: padding-box;
+  background-color: #fff;
+  transition: transform 0.2s;
+  -webkit-transition: transform 0.2s;
+}
+.Add_DU_Msg_App .DU_App_Content .DU_Switch input[type=checkbox]:checked {
+  background-color: var(--DUApp-main-bg-primary-color);
+}
+.Add_DU_Msg_App .DU_App_Content .DU_Switch input[type=checkbox]:checked:after {
+  transform: translate3d(22px, 0, 0);
+}
+.Add_DU_Msg_App .DU_App_Content .Config_SendBtn {
+  margin-top: 10px;
+  height: 40px;
+  background-color: var(--DUApp-main-bg-primary-color);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  width: 91%;
+  margin-left: 4.5%;
+  border-radius: 8px;
+}
+
+/* 自定义Loading样式 */
+.Du_App_Loading {
+  position: absolute;
+  top: 45px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  background-color: var(--DUApp-main-bg-color) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.Du_App_Loading .loadingSpan {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 5px solid var(--DUApp-main-bg-primary-color);
+  border-bottom-color: transparent;
+  border-radius: 100%;
+  animation: loading 1s linear infinite;
+  box-sizing: content-box;
+}
+.Du_App_Loading .loading-dot {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  animation: loading 1s linear infinite;
+  box-sizing: content-box;
+}
+.Du_App_Loading .loading-dot .loading-dot-item {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  background-color: var(--DUApp-main-bg-primary-color);
+  border-radius: 100%;
+  transform: scale(0.75);
+  transform-origin: 50% 50%;
+}
+.Du_App_Loading .loading-dot .loading-dot-item:nth-child(1) {
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+.Du_App_Loading .loading-dot .loading-dot-item:nth-child(2) {
+  top: 0;
+  right: 0;
+  opacity: 0.5;
+}
+.Du_App_Loading .loading-dot .loading-dot-item:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  opacity: 0.7;
+}
+.Du_App_Loading .loading-dot .loading-dot-item:nth-child(4) {
+  bottom: 0;
+  right: 0;
+}
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 自定义Dialog样式 */
+.Du_App_Dialog_shadow {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: rgba(54, 58, 69, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.Du_App_Dialog_shadow .Dialog_Element {
+  width: 87%;
+  min-width: 270px;
+  background: var(--DUApp-main-bg-color);
+  border-radius: 14px;
+  animation: 0.2s linear 0s infinite alternate Du_App_Dialog_Show;
+  animation-iteration-count: 1;
+}
+.Du_App_Dialog_shadow .Dialog_Element .Dialog_Element_title {
+  text-align: center;
+  padding: 16px;
+  color: var(--DUApp-main-text-color);
+  border-bottom: 0.5px solid var(--DUApp-main-border-color);
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.Du_App_Dialog_shadow .Dialog_Element .Dialog_Element_Footer {
+  display: flex;
+}
+.Du_App_Dialog_shadow .Dialog_Element .Dialog_Element_Footer .Dialog_Element_Footer_cancel {
+  display: inline-block;
+  flex: 1;
+  text-align: center;
+  color: var(--DUApp-main-text-primary-color);
+  line-height: 43px;
+  border-right: 0.5px solid var(--DUApp-main-border-color);
+}
+.Du_App_Dialog_shadow .Dialog_Element .Dialog_Element_Footer .Dialog_Element_Footer_ok {
+  display: inline-block;
+  flex: 1;
+  text-align: center;
+  color: var(--DUApp-main-text-primary-color);
+  line-height: 43px;
+}
+@keyframes Du_App_Dialog_Show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 自定义Toast样式 */
+.Du_App_Toast_shadow {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: 0.2s linear 0s infinite alternate Du_App_Toast_Show;
+  animation-iteration-count: 1;
+}
+.Du_App_Toast_shadow .Du_App_Toast {
+  background: rgba(54, 58, 69, 0.8);
+  border-radius: 10px;
+  z-index: 1001;
+  text-align: center;
+  padding: 14px;
+  box-sizing: border-box;
+  max-width: 80vw;
+}
+.Du_App_Toast_shadow .Du_App_Toast .icon {
+  display: block;
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
+}
+.Du_App_Toast_shadow .Du_App_Toast .icon svg {
+  fill: #ffffff;
+}
+.Du_App_Toast_shadow .Du_App_Toast .describe {
+  font-size: 16px;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 22px;
+}
+@keyframes Du_App_Toast_Show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 自定义Popup样式 */
+.Du_App_Popup_shadow {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(54, 58, 69, 0.3);
+  z-index: 1000;
+}
+.Du_App_Popup_shadow .Du_App_Popup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40vh;
+  background: var(--DUApp-main-bg-color);
+  border-radius: 16px 16px 0 0;
+  transition: height 2s ease-in;
+  animation: 0.2s linear 0s infinite alternate Du_App_Popup;
+  animation-iteration-count: 1;
+}
+@keyframes Du_App_Popup {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 40vh;
+  }
+}
+
+/* 自定义PickerView样式 */
+.Du_App_pickerView-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+}
+.Du_App_pickerView-wrap * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 0;
+}
+.Du_App_pickerView-wrap .pickerView-mask {
+  height: 100%;
+  width: 100%;
+  background: rgba(54, 58, 69, 0.3);
+}
+.Du_App_pickerView-wrap .pickerView-box {
+  height: 40%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  padding-top: 45px;
+  animation: slideUp 0.3s;
+  border-radius: 16px 16px 0 0;
+}
+.Du_App_pickerView-wrap .pickerView-box .pickerView-box-header {
+  text-align: center;
+  height: 45px;
+  border-bottom: 0.5px solid #dde6f0;
+  width: 100%;
+  padding: 0 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+}
+.Du_App_pickerView-wrap .pickerView-box .pickerView-box-header > div {
+  line-height: 44px;
+  font-size: 16px;
+}
+.Du_App_pickerView-wrap .pickerView-box .pickerView-box-header .pickerView-box-header-btn {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  color: #108ee9;
+}
+.Du_App_pickerView-wrap .pickerView-box .pickerView-box-header .pickerView-box-header-left {
+  left: 16px;
+}
+.Du_App_pickerView-wrap .pickerView-box .pickerView-box-header .pickerView-box-header-right {
+  right: 16px;
+}
+.Du_App_pickerView-wrap .pickerView-box .pickerView-box-header .pickerView-box-header-title {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: none;
+}
+.Du_App_pickerView-wrap .pickerView-box .pickerView-box-content-wrap {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+.Du_App_pickerView-wrap .pickerView-box .pickerView-box-content-wrap .pickerView-box-content {
+  flex: 1;
+  position: relative;
+}
+.Du_App_pickerView-wrap .pickerView-box .pickerView-box-content-wrap .pickerView-box-content .pickerView-box-content-mask {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 3;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+  background-position: top, bottom;
+  background-size: 100% 102px;
+  background-repeat: no-repeat;
+}
+.Du_App_pickerView-wrap .pickerView-box .pickerView-box-content-wrap .pickerView-box-content .pickerView-box-content-indicator {
+  box-sizing: border-box;
+  margin-left: 16px;
+  width: calc(100% - 32px);
+  height: 48px;
+  position: absolute;
+  left: 0;
+  top: 102px;
+  z-index: 1;
+  background: #f2f4f9;
+  border-radius: 8px;
+}
+.Du_App_pickerView-wrap .pickerView-box .pickerView-box-content-wrap .pickerView-box-content .pickerView-items {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  padding: 102px 0;
+  padding: 102px 0px;
+}
+.Du_App_pickerView-wrap .pickerView-box .pickerView-box-content-wrap .pickerView-box-content .pickerView-items .pickerView-item {
+  touch-action: manipulation;
+  text-align: center;
+  font-size: 16px;
+  height: 48px;
+  line-height: 48px;
+  color: #363a45;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@keyframes slideUp {
+  0% {
+    bottom: -40%;
+  }
+  100% {
+    bottom: 0;
+  }
+}

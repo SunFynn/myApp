@@ -59,7 +59,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }: any) => {
               title={'DUDUDUDU'}
               onClick={() => {
                 console.log('新建DU', '========');
-                /* 配置参考文档 http://www.wtz-lmm.cn/publicShareCDN/_DU/DU.html */
+                /* 配置参考文档 http://www.wtz-lmm.cn/publicShareCDN/_DU/pc/DU.html */
                 const options = {
                   type: 0,
                   theme: 0,
