@@ -116,6 +116,23 @@ export const getStrLen = (str: string): number => {
   return truelen;
 };
 
+/** 判断一个字符串中出现次数最多的字符，统计这个次数
+  var str = 'asdfssaaasasasasaa';
+  var json = {};
+  @return [字符, 次数]
+*/
+export const findMaxCharacter = (val: string) => {
+  const obj = {};
+  [...val].forEach((item) => {
+    if (!obj[item]) obj[item] = 1;
+    else obj[item] += 1;
+  });
+  const keyArr: Array<number> = Object.values(obj);
+  const maxCharacter: number = Math.max(...keyArr);
+  const idx = keyArr.indexOf(maxCharacter);
+  return [Object.keys(obj)[idx], maxCharacter];
+};
+
 /**
  * 生成随意字符串
  * @param length number - 要生成的字符串长度
