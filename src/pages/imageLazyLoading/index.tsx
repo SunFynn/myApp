@@ -35,7 +35,7 @@ export default function Image() {
   const throttleInviewShow = throttle(inViewShow);
 
   const init = () => {
-    if (!('IntersectionObserver' in window)) {
+    if ('IntersectionObserver' in window) {
       // 方法2，IntersectionObserver
       const lazyImageObserver = new IntersectionObserver((entries) => {
         // entries是一个数组，表示监听的元素列表
