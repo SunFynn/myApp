@@ -1,10 +1,12 @@
-import html2canvas from 'html2canvas';
 import CryptoJS from 'crypto-js';
 import _ from 'lodash';
+import { downloadCanvesToImage } from './fileStream';
+
+export { downloadCanvesToImage };
 
 /* 正则 */
 // url地址
-const urlReq =
+const urlReg =
   /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/;
 // 身份证
 const idCardReq = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
@@ -12,6 +14,9 @@ const idCardReq = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
 const telReq = /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/;
 // 中文
 const chineseReq = /^[\u4e00-\u9fa5]+$/g;
+
+/** 判断字符串是不是url格式 */
+export const isUrl = (path: string): boolean => urlReg.test(path);
 
 /** 判断对象是否为空 */
 export const isEmpty = (obj: Record<string, any>): boolean => {
@@ -377,127 +382,6 @@ export const decryptAES = (ciphertext: string, keyHex?: string, iv?: string) => 
     return '';
   }
 };
-
-// 下载图片
-export const downloadCanvesToImage = async (id: string): Promise<void> => {
-  // html2canves将页面元素转化为canves画布
-  let canvas;
-  if (id.startsWith('.')) {
-    canvas = await html2canvas(document.querySelector(id) as HTMLElement);
-  } else {
-    canvas = await html2canvas(document.getElementById(id) as HTMLElement);
-  }
-  console.log(canvas, '====');
-
-  /**
-   * 方法1：canves转化为base64模式
-   * HTMLCanvesElement.toDataURL(type?, quality?) 将canves画布转化的为base64格式。
-   * @param type  可选 图片格式，默认为 image/png
-   * @param quality  可选 图片质量，取值范围0 - 1
-   */
-  // const shareUrl = canvas.toDataURL('image/png');    // 。例 data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ...9oADAMBAAIRAxEAPwD/AD/6AP/Z"
-  // const a = document.createElement('a');
-  // const handle = new MouseEvent('click');
-  // a.download = '二维码.png';
-  // a.href = shareUrl;            // href属性对应的是base64格式就可以正常下载了，  href如果是图片网址路径，即使设置了download，也可能不生效，只是打开图片网址 【兼容问题】
-  // a.dispatchEvent(handle);
-
-  /**
-   * 方法2：canves转化为blob
-   * HTMLCanvasElement.toBlob(callback, type?, quality?) 将canves画布转化的为blob格式
-   * @param callback  回调函数，可获得一个单独的 Blob 对象参数。如果图像未被成功创建，可能会获得 null 值
-   * @param type  可选 图片格式，默认为 image/png
-   * @param quality  可选 图片质量，取值范围0 - 1
-   *
-   * URL.createObjectURL(object) 静态方法会创建一个 DOMString。
-   * @param object 用于创建 URL 的 File 对象、Blob 对象或者 MediaSource 对象；
-   *
-   * URL.revokeObjectURL(DOMString)  释放之前URL.createObjectURL创建的DOMString。
-   */
-  canvas.toBlob(
-    async (Blob: any) => {
-      const a = document.createElement('a');
-      a.download = '二维码.png';
-      a.style.display = 'none';
-      a.type = 'image/png';
-      console.log(Blob, URL.createObjectURL(Blob)); // Blob{size: 10731, type: 'image/png'}  'blob:http://192.168.1.199:8001/fd48dc96-8b32-4c45-b866-d7f9c031e25b'
-      a.href = URL.createObjectURL(Blob);
-      document.body.appendChild(a);
-      a.click();
-      URL.revokeObjectURL(a.href);
-      document.body.removeChild(a);
-    },
-    'image/png',
-    1,
-  );
-};
-
-/** 下载指定网址的图片或文件 */
-export function downloadFileZip(
-  output: any,
-  downloadFileName = '未命名文件',
-  handleCancel: Function = () => {},
-) {
-  let fileName = downloadFileName;
-
-  if (!output) {
-    handleCancel();
-    return;
-  }
-  fetch(output, {
-    // @ts-ignore
-    responseType: 'blob',
-  })
-    .then((res) => res.blob())
-    .then((res) => {
-      const navigator: any = window.navigator;
-      if (navigator?.msSaveBlob) {
-        const suffix = output.split('.').pop();
-        fileName = downloadFileName === '未命名文件' ? `${fileName}.${suffix}` : fileName;
-        try {
-          navigator?.msSaveBlob?.(res, fileName);
-          handleCancel();
-        } catch (e) {
-          handleCancel();
-        }
-      } else {
-        fileName = output || downloadFileName;
-        const originName: string = fileName.slice(fileName.lastIndexOf('/') + 1, fileName.length);
-        const aTag = document.createElement('a');
-        const newType = originName.slice(originName.lastIndexOf(',') + 1, originName.length);
-        const fileType = `application/${newType}`;
-        const blob = new Blob([res], { type: fileType });
-        aTag.download =
-          downloadFileName + fileName.slice(fileName.lastIndexOf('.'), fileName.length);
-        aTag.href = URL.createObjectURL(blob);
-        aTag.click();
-
-        if (handleCancel) {
-          handleCancel();
-        }
-      }
-    })
-    .catch((e) => {
-      console.error(e);
-    });
-}
-
-/** 上传静态图片 */
-export function uploadImg() {
-  const input = document.createElement('input');
-  input.setAttribute('type', 'file');
-  input.setAttribute('accept', 'image/*');
-  input.setAttribute('multiple', 'multiple');
-  input.click();
-  input.onchange = async () => {
-    Array.from((input as any).files).forEach(async (item) => {
-      const formData = new FormData();
-      formData.append('file', item as any);
-      // 上传图片
-      console.log(formData, 'formData');
-    });
-  };
-}
 
 /** 获取sessionStorage内容 */
 export function getUserInfo() {

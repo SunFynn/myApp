@@ -1,4 +1,5 @@
 import {
+  isUrl,
   isEmpty,
   activeElementBlur,
   createCellId,
@@ -16,8 +17,17 @@ import {
   fileNameType,
   webEncrypt,
   decryptAES,
-  downloadFileZip,
 } from './utils';
+
+// isUrl
+test('判断string内容是不是URL格式', () => {
+  const str1 = '';
+  expect(isUrl(str1)).toBe(false);
+  const str2 = 'http://';
+  expect(isUrl(str2)).toBe(false);
+  const str3 = 'http://w.123.123.123.cn';
+  expect(isUrl(str3)).toBe(true);
+});
 
 // isEmpty
 test('判断对象是否为空', () => {
@@ -413,16 +423,6 @@ describe('window.open', () => {
       return window;
     });
     window.open('http://webim-dev.6du.cn/1.png');
-  });
-});
-
-describe('下载指定网址的图片或文件', () => {
-  it('', () => {
-    const handleCancel = () => {};
-    downloadFileZip('');
-  });
-  it('', () => {
-    downloadFileZip('https://webim-beta.6du.cn/media/OTHER/png/2023-08-14/1691998512717577.png');
   });
 });
 
