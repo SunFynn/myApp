@@ -232,6 +232,7 @@
         if (darkLink) document.head.removeChild(darkLink);
       }
 
+      // 组织架构弹框切换主题颜色
       if (window.ContactRelate) window.ContactRelate.loadTheme(theme);
     }
 
