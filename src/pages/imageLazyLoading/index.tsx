@@ -67,6 +67,7 @@ export default function Image() {
 
   return (
     <PageContainer title="图片懒加载">
+      12312312312312
       <div className={`${styles.images} admin-content`} ref={imageBox}>
         <img
           data-src="http://picnew13.photophoto.cn/20190114/wangluokejibeijingbizhisucai8kchaogaoqing-31818641_1.jpg"
