@@ -1,7 +1,7 @@
 {
-  current: '', // 当前后端开发人员的名字
+  current: 'wtz', // 当前后端开发人员的名字
   developers: [
-    { name: '测试1api', ip: '172.16.5.12', port: 8001 },
+    { name: 'wtz', ip: '39.107.12.47', port: 80 },
     { name: '测试2api', ip: '172.16.5.127', port: 8001, devPort: 50301 },
   ],
   proxy: {
@@ -15,6 +15,10 @@
       target: 'http://${ip}:${devPort}',
       port: 'devPort',
       changeOrigin: true,
+    },
+    '/publicShareCDN': {
+      target: 'http://${ip}:${port}',
+      port: 'port',
     },
   },
 }
