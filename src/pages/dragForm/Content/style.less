@@ -1,0 +1,69 @@
+.ContentBox {
+  padding-top: 10px;
+  h3 {
+    height: 42px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-bottom: 1px solid #dde6f0;
+  }
+  .FormContent {
+    // height: calc(100vh - 412px);
+    padding: 16px;
+    .Containers {
+      min-height: 100px;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #dde6f0;
+    }
+    .formContainers {
+      position: relative;
+      .deleteIcon {
+        display: none;
+      }
+      &:hover {
+        .deleteIcon {
+          position: absolute;
+          top: -8px;
+          right: -8px;
+          z-index: 9999;
+          display: block;
+          color: #f43835;
+        }
+      }
+    }
+    .formItemStyle {
+      position: relative;
+      display: flex;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px dashed #dde6f0;
+      cursor: pointer;
+      .deleteIcon {
+        display: none;
+      }
+      &:hover {
+        .deleteIcon {
+          position: absolute;
+          top: -8px;
+          right: -8px;
+          z-index: 9999;
+          display: block;
+          color: #f43835;
+        }
+      }
+      .formItemLabel {
+        width: 90px;
+        margin-right: 16px;
+        line-height: 30px;
+        text-align: right;
+        word-break: break-all;
+      }
+    }
+    .activeFormItem {
+      border-style: double;
+    }
+    .noFormItem {
+      border: none;
+    }
+  }
+}
