@@ -101,6 +101,12 @@
     ],
   },
   {
+    path: '/test',
+    name: '测试页面',
+    icon: 'SlidersOutlined',
+    component: './testPage',
+  },
+  {
     component: './404',
   },
 ];
