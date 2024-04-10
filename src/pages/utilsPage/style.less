@@ -1,6 +1,10 @@
 .UtilsCom {
-  .CanvesToImage {
+  display: flex;
+  .card {
     width: 280px;
+    margin-right: 16px;
+  }
+  .CanvesToImage {
     :global {
       .ant-card-body {
         text-align: center;
@@ -26,6 +30,17 @@
     }
     .primaryBtn {
       margin-top: 10px;
+    }
+  }
+  .downLoadFile {
+    .downBtnBox {
+      :global {
+        .ant-btn {
+          display: block;
+          width: 100%;
+          margin-bottom: 12px;
+        }
+      }
     }
   }
 }

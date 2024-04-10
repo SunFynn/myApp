@@ -4,6 +4,10 @@ import { Button } from 'antd';
 import { PageContainer } from '@ant-design/pro-layout';
 import produce from 'immer';
 import { get, post } from '@/services/home';
+import { Document, Page, pdfjs } from 'react-pdf';
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 interface HomeProps {}
 

@@ -37,6 +37,12 @@
     component: './chartsCom',
   },
   {
+    path: '/dragForm',
+    name: '低代码拖拽表单',
+    icon: 'ReconciliationOutlined',
+    component: './dragForm',
+  },
+  {
     path: '/relschema',
     name: '关系图',
     icon: 'BranchesOutlined',

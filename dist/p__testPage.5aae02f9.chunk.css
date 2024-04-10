@@ -1,0 +1,1 @@
+.Box{display:flex}.Box .Item{flex:1 1;margin-right:10px;padding:10px;border:1px solid #000}.Box .Item:last-child{margin-right:0}

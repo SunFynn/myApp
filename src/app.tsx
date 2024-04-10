@@ -7,6 +7,7 @@ import logo from '../public/logo.svg';
 import RightContent from '@/components/RightContent';
 import Footer from '@/components/Footer';
 import Helmet from './components/Helmet';
+import MobileInterface from '@/utils/mobileInterface';
 
 const loginPath = '/user/login';
 
@@ -26,6 +27,8 @@ const formatMenuData = (menuData: MenuDataItem[]) => {
 };
 
 export const layout: RunTimeLayoutConfig = ({ initialState }: any) => {
+  // 将MobileInterface操作对象挂载到window上
+  (window as any).MobileInterface = new MobileInterface(Number(3));
   return {
     title: '喵喵 & 嘿嘿',
     logo: logo,
