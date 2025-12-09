@@ -19,7 +19,9 @@ const TestPage: FunctionComponent<TestPageProps> = () => {
 
   const handleItemClick = (num: number) => {
     setActive(num);
+    console.log(num, '当前选中项')
   };
+
   return (
     <div className="Box">
       {list.map((item, idx) => {
