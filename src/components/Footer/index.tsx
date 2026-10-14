@@ -28,6 +28,12 @@ const Footer: React.FC = () => {
           href: '',
           blankTarget: true,
         },
+        {
+          key: 'beian',
+          title: '冀ICP备2023002598号-1',
+          href: 'https://beian.miit.gov.cn/',
+          blankTarget: true,
+        }
       ]}
     />
   );
