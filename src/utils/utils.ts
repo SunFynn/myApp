@@ -1,5 +1,6 @@
 import CryptoJS from 'crypto-js';
 import _ from 'lodash';
+import { message } from 'antd';
 import { downloadCanvesToImage } from './fileStream';
 
 export { downloadCanvesToImage };
@@ -127,7 +128,7 @@ export const getStrLen = (str: string): number => {
   @return [字符, 次数]
 */
 export const findMaxCharacter = (val: string) => {
-  const obj = {};
+  const obj: any = {};
   [...val].forEach((item) => {
     if (!obj[item]) obj[item] = 1;
     else obj[item] += 1;
@@ -413,5 +414,45 @@ export const loadStyles = (themeType: number = 0) => {
     if (darkStyle) {
       darkStyle.disabled = true;
     }
+  }
+};
+
+/**
+ * 复制
+ */
+export const copyText = (text: string) => {
+  if (!navigator.clipboard) {
+    // 如果浏览器不支持 Clipboard API，使用旧的方式
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'absolute';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand('copy');
+      if (_.trim(text)) {
+        message.success('复制成功');
+      }
+    } catch (err) {
+      if (_.trim(text)) {
+        message.error('复制失败');
+      }
+    } finally {
+      document.body.removeChild(textarea);
+    }
+  } else {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        if (_.trim(text)) {
+          message.success('复制成功');
+        }
+      })
+      .catch((err) => {
+        if (_.trim(text)) {
+          message.error('复制失败');
+        }
+      });
   }
 };

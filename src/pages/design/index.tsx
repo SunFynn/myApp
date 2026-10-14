@@ -1,6 +1,9 @@
+/**
+ * 个人前端组件库
+*/
 import React, { useMemo } from 'react';
 import { Card } from 'antd';
-import { EllipsisSpan, Copy, BaseDescriptions, DragIcon } from '@weblife-wei/web_design/src';
+import { EllipsisSpan, Copy, BaseDescriptions } from '@weblife-wei/web_design/src';
 import { PageContainer } from '@ant-design/pro-layout';
 
 const Design: React.FC = () => {

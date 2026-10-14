@@ -1,5 +1,7 @@
-import type { FunctionComponent } from 'react';
-import { useEffect, useState } from 'react';
+/**
+ * 交叉瀑布流
+*/
+import { useEffect, useState, type FunctionComponent } from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
 import { Card, Tabs } from 'antd';
 import CSSColumn from './css_column';

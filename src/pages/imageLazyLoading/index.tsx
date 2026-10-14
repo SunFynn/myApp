@@ -1,5 +1,8 @@
+/**
+ * @description: 图片懒加载
+*/
 import { useState, useEffect, useRef } from 'react';
-import { throttle } from 'lodash';
+import { throttle, debounce } from 'lodash';
 import { PageContainer } from '@ant-design/pro-layout';
 import styles from './style.less';
 
@@ -10,15 +13,16 @@ export default function Image() {
 
   useEffect(() => {
     // document.querySelectorAll('.lazy-image')选择器获取的是伪数组，需要转化为真数组，才能使用数组的一些方法
-    setImages(Array.from(document.querySelectorAll('.lazy-image')));
+    const imageList = document.querySelectorAll('.lazy-image');
+    const imageListArr = Array.from(imageList);
+    setImages(imageListArr);
   }, []);
-
 
   const inViewShow = () => {
     const ImageCopy = [...Images];
     let completed = 0;
     for (let i = 0; i < ImageCopy.length; i++) {
-      const image: any = ImageCopy[i];
+      const image = ImageCopy[i];
       // 出现在视野的时候加载图片
       if (image.getBoundingClientRect().top < window.innerHeight) {
         if(!image.src) image.src = image.dataset.src;
@@ -32,10 +36,11 @@ export default function Image() {
     }
   };
 
-  const throttleInviewShow = throttle(inViewShow);
+  const throttleInviewShow = throttle(inViewShow, 1000);
+
 
   const init = () => {
-    if ('IntersectionObserver' in window) {
+    if (!('IntersectionObserver' in window)) {
       // 方法2，IntersectionObserver
       const lazyImageObserver = new IntersectionObserver((entries) => {
         // entries是一个数组，表示监听的元素列表
@@ -57,7 +62,7 @@ export default function Image() {
     } else {
       // 方法1，监听scroll事件，判断图片位置
       inViewShow(); // 为了初始页面加载的时候，视图区域内的图片正常展示
-      if (imageBox.current) imageBox.current.addEventListener('scroll', throttle(inViewShow));
+      if (imageBox.current) imageBox.current.addEventListener('scroll', throttleInviewShow);
     }
   };
 

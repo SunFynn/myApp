@@ -1,3 +1,6 @@
+/**
+ * Echarts关系图
+*/
 import type { FC } from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
 import Rel1 from './components/Rel1';

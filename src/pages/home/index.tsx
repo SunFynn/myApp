@@ -1,3 +1,6 @@
+/**
+ * 首页
+*/
 import type { FC } from 'react';
 import { useEffect, useCallback, useRef, useState } from 'react';
 import { Button } from 'antd';
@@ -68,6 +71,7 @@ const Home: FC<HomeProps> = () => {
       </Button>
       <p>ref的值：{num.current}</p>
       <Button onClick={handleRefBtnClick}>useRef的值+1</Button>
+
     </PageContainer>
   );
 };

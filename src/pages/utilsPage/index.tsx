@@ -1,3 +1,6 @@
+/**
+ * @description: 封装方法调用展示页面
+*/
 import type { FunctionComponent } from 'react';
 import { useEffect } from "react";
 import { PageContainer } from '@ant-design/pro-layout';
@@ -10,7 +13,7 @@ import {
   blobToUrl,
   blobToBase64,
   base64ToBlob, 
-
+  
   downloadCanvesToImage, 
   downloadFileZip, 
 } from "@/utils/fileStream";
